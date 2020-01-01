@@ -1,0 +1,141 @@
+//////////////////////////////////////////////////////////////////////////////////////
+Задание 1
+//////////////////////////////////////////////////////////////////////////////////////
+using System;
+namespace Lab_1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+          float deg, rad;
+          Console.Write("Enter the value of a in degree(0 < a < 360): ");
+          deg = float.Parse(Console.ReadLine());
+          Console.WriteLine("{0} degree = {1}?", deg, rad = deg / 180);
+        }
+    }
+}
+//////////////////////////////////////////////////////////////////////////////////////
+Задание 2
+//////////////////////////////////////////////////////////////////////////////////////
+using System;
+namespace Lab_1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+          float deg, rad;
+          Console.Write("Enter the value of a in radians(0 < a < 2?): ");
+          rad = float.Parse(Console.ReadLine());
+          Console.WriteLine("{0}? = {1}", rad, deg = rad * 180);
+        }
+    }
+}
+//////////////////////////////////////////////////////////////////////////////////////
+Задание 3
+//////////////////////////////////////////////////////////////////////////////////////
+using System;
+namespace Lab_1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+          float init_kg, init_prise, one_kg, kg, kg_prise;
+          Console.Write("How many kilograms weigh candies?: ");
+          init_kg = float.Parse(Console.ReadLine());
+          Console.Write("How much are they?: ");
+          init_prise = float.Parse(Console.ReadLine());
+          one_kg = init_prise / init_kg;
+          Console.Write("Enter the desired weight of sweets is kilograms: ");
+          kg = float.Parse(Console.ReadLine());
+          kg_prise = kg * one_kg;
+          Console.WriteLine("One kilogram of candies costs {0}, {1} kilograms of candies is worth {2}",one_kg,kg,kg_prise);
+        }
+    }
+}
+//////////////////////////////////////////////////////////////////////////////////////
+Задание 4
+//////////////////////////////////////////////////////////////////////////////////////
+using System;
+namespace Lab_1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+          float v1, v2, s, t;
+          Console.Write("Enter the speed of first and second car, the initial distanse between them and the elapsed time in hours:\nV1 = ");
+          v1 = float.Parse(Console.ReadLine());
+          Console.Write("V2 = ");
+          v2 = float.Parse(Console.ReadLine());
+          Console.Write("S = ");
+          s = float.Parse(Console.ReadLine());
+          Console.Write("T = ");
+          t = float.Parse(Console.ReadLine());
+          Console.WriteLine("The distanse between cars after {0} hours = {1}", t, s += (v1 + v2) * t);
+        }
+    }
+}
+//////////////////////////////////////////////////////////////////////////////////////
+Задание 5
+//////////////////////////////////////////////////////////////////////////////////////
+using System;
+namespace Lab_1
+{
+    class Program
+    {
+        public static float equation(float a, float b)
+        {
+          return -b/a;
+        }
+        static void Main(string[] args)
+        {
+            float A, B;
+            Console.Write("The equation is A * X + B = 0\nEnter the values A and B:\nA = ");
+            A = float.Parse(Console.ReadLine());
+            Console.Write("B = ");
+            B = float.Parse(Console.ReadLine());
+            Console.WriteLine("The value of X is {0}", equation(A, B));
+        }
+    }
+}
+//////////////////////////////////////////////////////////////////////////////////////
+Задание 6
+//////////////////////////////////////////////////////////////////////////////////////
+using System;
+namespace Lab_1
+{
+    class Program
+    {
+        public static void equation(float a1, float b1, float c1, float a2, float b2, float c2, ref float x, ref float y)
+        {
+            float det, det1, det2;
+            det = a1 * b2 - b1 * a2;
+            det1 = c1 * b2 - b1 * c2;
+            det2 = a1 * c2 - c1 * a2;
+            x = det1 / det;
+            y = det2 / det;
+        }
+        static void Main(string[] args)
+        {
+            float X = 0, Y = 0;
+            Console.WriteLine("The system of linear equations =\nA1 * X + B1 * Y = C1\nA2 * X + B2 * Y = C2");
+            Console.Write("Enter the value of A1: ");
+            float A1 = float.Parse(Console.ReadLine());
+            Console.Write("Enter the value of B1: ");
+            float B1 = float.Parse(Console.ReadLine());
+            Console.Write("Enter the value of C1: ");
+            float C1 = float.Parse(Console.ReadLine());
+            Console.Write("Enter the value of A2: ");
+            float A2 = float.Parse(Console.ReadLine());
+            Console.Write("Enter the value of B2: ");
+            float B2 = float.Parse(Console.ReadLine());
+            Console.Write("Enter the value of C2: ");
+            float C2 = float.Parse(Console.ReadLine());
+            equation(a1:A1, b1:B1, c1:C1, a2:A2, b2:B2, c2:C2, x:ref X, y:ref Y);
+            Console.WriteLine("X = {0}\nY = {1}", X, Y);
+        }
+    }
+}

@@ -1,0 +1,191 @@
+////////////////////////////////////////////////////////////////////////////////////////
+Задача 1
+////////////////////////////////////////////////////////////////////////////////////////
+using System;
+namespace Lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int a, b;
+            Console.Write("Enter the values of a and b:\na = ");
+            a = int.Parse(Console.ReadLine());
+            Console.Write("b = ");
+            b = int.Parse(Console.ReadLine());
+            if (!(a == b))
+            {
+                if (a > b) { b = a; }
+                else { a = b; }
+            }
+            else
+            {
+                a = 0; b = 0;
+            }
+            Console.WriteLine("New values of variables :\na = {0}\nb = {1}", a, b);
+        }
+    }
+}
+////////////////////////////////////////////////////////////////////////////////////////
+Задача 2
+////////////////////////////////////////////////////////////////////////////////////////
+using System;
+namespace Lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int a, b, c, sum;
+            Console.Write("Enter the values of a, b and c:\na = ");
+            a = int.Parse(Console.ReadLine());
+            Console.Write("b = ");
+            b = int.Parse(Console.ReadLine());
+            Console.Write("c = ");
+            c = int.Parse(Console.ReadLine());
+            if (a + b > a + c)
+            {
+                if (a + b > b + c)
+                { sum = a + b; }
+                else { sum = b + c; }
+            }
+            else
+            {
+                if (a + c > b + c)
+                { sum = a + c; }
+                else { sum = b + c; }
+            }
+            Console.WriteLine("The sum of the two largest numbers = " + sum);
+        }
+    }
+}
+////////////////////////////////////////////////////////////////////////////////////////
+Задача 3
+////////////////////////////////////////////////////////////////////////////////////////
+using System;
+namespace Lab
+{
+    class Program
+    {
+        public static void InputCord(char a, float[] x)
+        {
+            Console.Write("Enter the coordinates of {0}:\nx = ", a);
+            x.SetValue(float.Parse(Console.ReadLine()), 0);
+            Console.Write("y = ");
+            x.SetValue(float.Parse(Console.ReadLine()), 1);
+        }
+        static void Main(string[] args)
+        {
+            float[] a = new float[2]; float[] b = new float[2]; float[] c = new float[2];
+            double AB, AC;
+            InputCord('a', a); InputCord('b', b); InputCord('c', c);
+            AB = Math.Sqrt(Math.Pow(a[0] - b[0], 2) + Math.Pow(a[1] - b[1], 2));
+            AC = Math.Sqrt(Math.Pow(a[0] - c[0], 2) + Math.Pow(a[1] - c[1], 2));
+            if (AB != AC)
+            {
+                if (AB < AC)
+                {
+                    Console.WriteLine("b is closer to a than c\nThe distance between them = " + AB);
+                }
+                else
+                {
+                    Console.WriteLine("c is closer to a than b\nThe distance between them = " + AC);
+                }
+            }
+            else
+            {
+                Console.WriteLine("b and c are equidistant from a.\nThe distance = " + AB);
+            }
+        }
+    }
+}
+////////////////////////////////////////////////////////////////////////////////////////
+Задача 4
+////////////////////////////////////////////////////////////////////////////////////////
+using System;
+namespace Lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int[] o = new int[2];
+            Console.WriteLine("Enter the values of x and y: ");
+            for(int i = 0; i < o.Length; i++)
+            {
+                o[i] = int.Parse(Console.ReadLine());
+                if (o[i] == 0) 
+                {
+                    Console.WriteLine("The value can\'t be equal to 0");
+                    Environment.Exit(1);
+                }
+            }
+            bool x = o[0] > 0 ? true : false;
+            bool y = o[1] > 0 ? true : false;
+            if (x && y) { Console.WriteLine("First quarter"); }
+            else if (!x && !y) { Console.WriteLine("Third quarter"); }
+            else if (x && !y) { Console.WriteLine("Forth quarter"); }
+            else{ Console.WriteLine("Second quarter"); }
+        }
+    }
+}
+////////////////////////////////////////////////////////////////////////////////////////
+Задача 5
+////////////////////////////////////////////////////////////////////////////////////////
+using System;
+namespace Lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int a;
+            Console.Write("Enter the number: ");
+            a = int.Parse(Console.ReadLine());
+            if (a != 0)
+            {
+                if (a > 0 && a % 2 == 0) { Console.WriteLine("Positive even number"); }
+                else if (a > 0 && a % 2 != 0) { Console.WriteLine("Positive odd number"); }
+                else if (a < 0 && a % 2 != 0) { Console.WriteLine("Negative odd number"); }
+                else { Console.WriteLine("Negative even number"); }
+            }
+            else { Console.WriteLine("Zero number"); }
+        }
+    }
+}
+////////////////////////////////////////////////////////////////////////////////////////
+Задача 6
+////////////////////////////////////////////////////////////////////////////////////////
+using System;
+namespace Lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int a, dig = 0;
+            string res;
+            Console.Write("Enter the number(1-999): ");
+            a = int.Parse(Console.ReadLine());
+            if (a % 2 == 0) { res = "Even "; }
+            else { res = "Odd "; }
+            while(a != 0)
+            {
+                a /= 10;
+                dig++;
+            }
+            switch(dig)
+            {
+                case 1:
+                    Console.WriteLine(res + "one digit number");
+                    break;
+                case 2:
+                    Console.WriteLine(res + "two digit number");
+                    break;
+                case 3:
+                    Console.WriteLine(res + "three digit number");
+                    break;
+            }
+        }
+    }
+}

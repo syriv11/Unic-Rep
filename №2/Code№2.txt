@@ -1,0 +1,139 @@
+///////////////////////////////////////////////////////////////////////////////
+Задание 1
+///////////////////////////////////////////////////////////////////////////////
+using System;
+namespace Lab_1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            double x1, x2, y1, y2, l;
+            Console.Write("Введите координаты 1-й точки:\nx1 = ");
+            x1 = float.Parse(Console.ReadLine());
+            Console.Write("y1 = ");
+            y1 = float.Parse(Console.ReadLine());
+            Console.Write("Введите координаты 2-й точки:\nx2 = ");
+            x2 = float.Parse(Console.ReadLine());
+            Console.Write("y2 = ");
+            y2 = float.Parse(Console.ReadLine());
+            l = Math.Sqrt(Math.Pow(x2 - x1, 2) + Math.Pow(y2 - y1, 2));
+            Console.WriteLine("Расстояние между точками = {0}", l);
+        }
+    }
+}
+///////////////////////////////////////////////////////////////////////////////
+Задание 2
+///////////////////////////////////////////////////////////////////////////////
+using System;
+namespace Lab_1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            float a, b, c, AC, BC, sum;
+            Console.Write("Введите координаты точки A: ");
+            a = float.Parse(Console.ReadLine());
+            Console.Write("Введите координаты точки B: ");
+            b = float.Parse(Console.ReadLine());
+            Console.Write("Введите координаты точки C: ");
+            c = float.Parse(Console.ReadLine());
+            Console.WriteLine("AC = {0}", AC = Math.Abs(a - c));
+            Console.WriteLine("BC = {0}", BC = Math.Abs(b - c));
+            Console.WriteLine("Сумма отрезков AC и BC = {0}", sum = AC + BC);
+
+        }
+    }
+}
+///////////////////////////////////////////////////////////////////////////////
+Задание 3
+///////////////////////////////////////////////////////////////////////////////
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Temp_C_Sharp
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            float a, b, c, AC, BC, div;
+            Console.Write("Введите координаты точки A: ");
+            a = float.Parse(Console.ReadLine());
+            Console.Write("Введите координаты точки B: ");
+            b = float.Parse(Console.ReadLine());
+            Console.Write("Введите координаты точки C: ");
+            c = float.Parse(Console.ReadLine());
+            Console.WriteLine("AC = {0}", AC = Math.Abs(a - c));
+            Console.WriteLine("BC = {0}", BC = Math.Abs(b - c));
+            Console.WriteLine("Произведение отрезков AC и BC = {0}", div = AC * BC);
+        }
+    }
+}
+///////////////////////////////////////////////////////////////////////////////
+Задание 4
+///////////////////////////////////////////////////////////////////////////////
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Temp_C_Sharp
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            float x1, x2, y1, y2, s1, s2, P, S;
+            Console.WriteLine("Введите координаты первой вершины: ");
+            x1 = Convert.ToSingle(Console.ReadLine());
+            y1 = Convert.ToSingle(Console.ReadLine());
+            Console.WriteLine("Введите координаты второй вершины: ");
+            x2 = Convert.ToSingle(Console.ReadLine());
+            y2 = Convert.ToSingle(Console.ReadLine());
+            s1 = Math.Abs(x1 - x2);
+            s2 = Math.Abs(y1 - y2);
+            Console.WriteLine("Периметр прямоугольника = {0}\nПлощадь прямоугольника = {1}", P = 2 * (s1 + s2), S = s1 * s2);
+        }
+    }
+}
+///////////////////////////////////////////////////////////////////////////////
+Задание 5
+///////////////////////////////////////////////////////////////////////////////
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Temp_C_Sharp
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            double x1, x2, y1, y2, x3, y3, s1, s2, s3,pol, P, S;
+            Console.WriteLine("Введите координаты 1-ой точки:");
+            x1 = float.Parse(Console.ReadLine());
+            y1 = float.Parse(Console.ReadLine());
+            Console.WriteLine("Введите координаты 2-ой точки:");
+            x2 = float.Parse(Console.ReadLine());
+            y2 = float.Parse(Console.ReadLine());
+            Console.WriteLine("Введите координаты 3-ой точки:");
+            x3 = float.Parse(Console.ReadLine());
+            y3 = float.Parse(Console.ReadLine());
+            s1 = Math.Sqrt(Math.Pow(x2 - x1, 2) + Math.Pow(y2 - y1, 2));
+            s2 = Math.Sqrt(Math.Pow(x3 - x2, 2) + Math.Pow(y3 - y2, 2));
+            s3 = Math.Sqrt(Math.Pow(x1 - x3, 2) + Math.Pow(y1 - y3, 2));
+            P = s1 + s2 + s3;
+            pol = P / 2;
+            S = Math.Sqrt(pol * (pol - s1) * (pol - s2) * (pol - s3));
+            Console.WriteLine("Периметр треугольника = {0}\nПлощадь треугольника = {1}", P, S);
+        }
+    }
+}

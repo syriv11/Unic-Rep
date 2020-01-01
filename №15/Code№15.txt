@@ -1,0 +1,424 @@
+///////////////////////////////////////////////////////////////////////////////////////////////
+Задание 1
+///////////////////////////////////////////////////////////////////////////////////////////////
+using System;
+namespace Lab
+{
+    class Program
+    {
+        // Функция для заполнения массива
+        public static void Fill(int[] x)
+        {
+            char choose;
+            Console.WriteLine("Enter the desired type of array filling\n1) Manual input\n2) Automatically  enter random numbers");
+            choose = char.Parse(Console.ReadLine());
+            switch (choose)
+            {
+                case '1':
+                    Console.WriteLine("Enter the values of all elements of the array one at a time (not the same):\n======");
+                    for (int i = 0; i < x.Length; i++)
+                    {
+                        Console.Write("{0}) ", i + 1);
+                        x[i] = int.Parse(Console.ReadLine());
+                    }
+                    break;
+                case '2':
+                    Random rand = new Random();
+                    for (int i = 0; i < x.Length; i++)
+                    {
+                        x[i] = rand.Next(100);
+                    }
+                    break;
+                default:
+                    Console.WriteLine("Wrong command!");
+                    Environment.Exit(1);
+                    break;
+            }
+        }
+
+        // Функция для перестановки
+        public static void Transposition(int[] a, int[] b)
+        {
+            int temp;
+            for (int i = 0; i < a.Length; i++)
+            {
+                temp = a[i];
+                a[i] = b[i];
+                b[i] = temp;
+            }
+        }
+
+        //Вывод массива
+
+        public static void Print(int[] a)
+        {
+            Console.WriteLine("==========");
+            for (int i = 0; i < a.Length; i++)
+            {
+                Console.Write(a[i] + " ");
+            }
+            Console.WriteLine("\n==========");
+        }
+
+        //Работа с массивом
+
+        static void Main(string[] args)
+        {
+            int n;
+            Console.WriteLine("Enter the value of N (size of array): ");
+            n = int.Parse(Console.ReadLine());
+            int[] a = new int[n];
+            int[] b = new int[n];
+            Console.Write("\nA: ");
+            Fill(a);
+            Console.Write("\nB: ");
+            Fill(b);
+            Console.Clear();
+            Console.WriteLine("The array A is: ");
+            Print(a);
+            Console.WriteLine("The array B is: ");
+            Print(b);
+            Transposition(a, b);
+            Console.WriteLine("\n++++++++++\n\nNow the array A is: ");
+            Print(a);
+            Console.WriteLine("And array B is: ");
+            Print(b);
+        }
+    }
+}
+///////////////////////////////////////////////////////////////////////////////////////////////
+Задание 2
+///////////////////////////////////////////////////////////////////////////////////////////////
+using System;
+namespace Lab
+{
+    class Program
+    {
+
+        // Функция для заполнения массива
+        public static void Fill(int[] x)
+        {
+            char choose;
+            Console.WriteLine("Enter the desired type of array filling\n1) Manual input\n2) Automatically  enter random numbers");
+            choose = char.Parse(Console.ReadLine());
+            switch (choose)
+            {
+                case '1':
+                    Console.WriteLine("Enter the values of all elements of the array one at a time (not the same):\n======");
+                    for (int i = 0; i < x.Length; i++)
+                    {
+                        Console.Write("{0}) ", i + 1);
+                        x[i] = int.Parse(Console.ReadLine());
+                    }
+                    break;
+                case '2':
+                    Random rand = new Random();
+                    for (int i = 0; i < x.Length; i++)
+                    {
+                        x[i] = rand.Next(100);
+                    }
+                    break;
+                default:
+                    Console.WriteLine("Wrong command!");
+                    Environment.Exit(1);
+                    break;
+            }
+        }
+
+        //Вывод массива int
+        public static void Print(int[] a)
+        {
+            Console.WriteLine("==========");
+            for (int i = 0; i < a.Length; i++)
+            {
+                Console.Write(a[i] + " ");
+            }
+            Console.WriteLine("\n==========");
+        }
+        //Вывод массива float
+        public static void Print(float[] a)
+        {
+            Console.WriteLine("==========");
+            for (int i = 0; i < a.Length; i++)
+            {
+                Console.Write(a[i] + " ");
+            }
+            Console.WriteLine("\n==========");
+        }
+
+
+        //Работа с массивом
+        static void Main(string[] args)
+        {
+            int n;
+            float sum = 0, count = 0;
+            float avarage;
+            Console.WriteLine("Enter the value of N (size of array): ");
+            n = int.Parse(Console.ReadLine());
+            int[] a = new int[n];
+            Fill(a);
+            float[] b = new float[n];
+            for (int i = 0; i < n; i++)
+            {
+                for (int j = 0; j < i; j++)
+                {
+                    sum += a[j];
+                    count++;
+                }
+                if (count != 0)
+                {
+                    avarage = sum / count;
+                }
+                else { avarage = 0; }
+                b[i] = avarage;
+                sum = 0;
+                count = 0;
+            }
+            Console.WriteLine("The array A is: ");
+            Print(a);
+            Console.WriteLine("The array B is: ");
+            Print(b);
+        }
+    }
+}
+///////////////////////////////////////////////////////////////////////////////////////////////
+Задание 3
+///////////////////////////////////////////////////////////////////////////////////////////////
+using System;
+namespace Lab
+{
+    class Program
+    {
+        // Функция для заполнения массива
+        public static void Fill(int[] x)
+        {
+            char choose;
+            Console.WriteLine("Enter the desired type of array filling\n1) Manual input\n2) Automatically enter random numbers");
+            choose = char.Parse(Console.ReadLine());
+            switch (choose)
+            {
+                case '1':
+                    Console.WriteLine("Enter the values of all elements of the array one at a time (not the same):\n======");
+                    for (int i = 0; i < x.Length; i++)
+                    {
+                        Console.Write("{0}) ", i + 1);
+                        x[i] = int.Parse(Console.ReadLine());
+                    }
+                    break;
+                case '2':
+                    Random rand = new Random();
+                    for (int i = 0; i < x.Length; i++)
+                    {
+                        x[i] = rand.Next(100);
+                    }
+                    break;
+                default:
+                    Console.WriteLine("Wrong command!");
+                    Environment.Exit(1);
+                    break;
+            }
+        }
+
+        //Функция для вывода массива
+
+        public static void Print(int[] a)
+        {
+            Console.WriteLine("==========");
+            for (int i = 0; i < a.Length; i++)
+            {
+                Console.Write(a[i] + " ");
+            }
+            Console.WriteLine("\n==========");
+        }
+
+        //Работа с массивом
+
+        static void Main(string[] args)
+        {
+            int n, lastOdd = 0;
+            bool flag = false;
+            Console.Write("Enter the value of N (size of array): ");
+            n = int.Parse(Console.ReadLine());
+            int[] a = new int[n];
+            Console.Clear();
+            Fill(a);
+            Console.Clear();
+            Console.WriteLine("The array is: ");
+            Print(a);
+            for (int i = n - 1; i >= 0; i--)
+            {
+                if (a[i] % 2 == 1 && flag == false)
+                {
+                    lastOdd = a[i];
+                    flag = true;
+                }
+                if (a[i] % 2 == 1)
+                {
+                    a[i] += lastOdd;
+                }
+            }
+            Console.WriteLine();
+            Console.WriteLine("The array after processing: ");
+            Print(a);
+        }
+    }
+}
+///////////////////////////////////////////////////////////////////////////////////////////////
+Задание 4
+///////////////////////////////////////////////////////////////////////////////////////////////
+using System;
+namespace Lab
+{
+    class Program
+    {
+        // Функция для заполнения массива
+        public static void Fill(int[] x)
+        {
+            char choose;
+            Console.WriteLine("Enter the desired type of array filling\n1) Manual input\n2) Automatically enter random numbers");
+            choose = char.Parse(Console.ReadLine());
+            switch (choose)
+            {
+                case '1':
+                    Console.WriteLine("Enter the values of all elements of the array one at a time (not the same):\n======");
+                    for (int i = 0; i < x.Length; i++)
+                    {
+                        Console.Write("{0}) ", i + 1);
+                        x[i] = int.Parse(Console.ReadLine());
+                    }
+                    break;
+                case '2':
+                    Random rand = new Random();
+                    for (int i = 0; i < x.Length; i++)
+                    {
+                        x[i] = rand.Next(100);
+                    }
+                    break;
+                default:
+                    Console.WriteLine("Wrong command!");
+                    Environment.Exit(1);
+                    break;
+            }
+        }
+
+        //Функция для вывода массива
+
+        public static void Print(int[] a)
+        {
+            Console.WriteLine("==========");
+            for (int i = 0; i < a.Length; i++)
+            {
+                Console.Write(a[i] + " ");
+            }
+            Console.WriteLine("\n==========");
+        }
+
+        //Работа с массивом
+
+        static void Main(string[] args)
+        {
+            int n;
+            Console.Write("Enter the value of N (size of array): ");
+            n = int.Parse(Console.ReadLine());
+            int[] a = new int[n];
+            Console.Clear();
+            Fill(a);
+            Console.Clear();
+            Console.WriteLine("The array is: ");
+            Print(a);
+            int min = a[0], minID = 0;
+            int max = a[0], maxID = 0;
+            for (int i = 0; i < n; i++)
+            {
+                if (a[i] < min)
+                {
+                    min = a[i];
+                    minID = i;
+                }
+                if (a[i] > max)
+                {
+                    max = a[i];
+                    maxID = i;
+                }
+            }
+            for (int i = 0; i < n; i++)
+            {
+                if ((i > minID && i < maxID) || (i < minID && i > maxID))
+                {
+                    a[i] = 0;
+                }
+            }
+            Console.WriteLine();
+            Console.WriteLine("The array after processing: ");
+            Print(a);
+        }
+    }
+}
+///////////////////////////////////////////////////////////////////////////////////////////////
+Задание 5
+///////////////////////////////////////////////////////////////////////////////////////////////
+using System;
+namespace Lab
+{
+    class Program
+    {
+        // Функция для заполнения массива
+        public static void Fill(int[] x)
+        {
+            Console.WriteLine("Enter the values of all elements of the array ascending (exept the first):\n======");
+            for (int i = 0; i < x.Length; i++)
+            {
+                Console.Write("{0}) ", i + 1);
+                x[i] = int.Parse(Console.ReadLine());
+            }
+        }
+
+        //Функция для вывода массива
+
+        public static void Print(int[] a)
+        {
+            Console.WriteLine("==========");
+            for (int i = 0; i < a.Length; i++)
+            {
+                Console.Write(a[i] + " ");
+            }
+            Console.WriteLine("\n==========");
+        }
+
+        //Работа с массивом
+
+        static void Main(string[] args)
+        {
+            int n;
+            Console.Write("Enter the value of N (size of array): ");
+            n = int.Parse(Console.ReadLine());
+            int[] a = new int[n];
+            Console.Clear();
+            Fill(a);
+            Console.Clear();
+            Console.WriteLine("The array is: ");
+            Print(a);
+            int elem = a[0];
+            for (int i = 1; i < n; i++)
+            {
+                if (elem < a[1])
+                {
+                    break;
+                }
+                if (elem > a[i] && elem < a[i + 1])
+                {
+                    a[i - 1] = a[i];
+                    a[i] = elem;
+                    break;
+                }
+                else
+                {
+                    a[i - 1] = a[i];
+                }
+            }
+            Console.WriteLine();
+            Console.WriteLine("The array after processing: ");
+            Print(a);
+        }
+    }
+}

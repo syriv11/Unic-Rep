@@ -1,0 +1,147 @@
+/////////////////////////////////////////////////////////////////////////////////////
+Задание 1
+/////////////////////////////////////////////////////////////////////////////////////
+using System;
+namespace Lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int a, b;
+            Console.WriteLine("Enter the positive value of a: ");
+            a = int.Parse(Console.ReadLine());
+            Console.WriteLine("Enter the positive value of b (must be more than a): ");
+            b = int.Parse(Console.ReadLine());
+            Console.WriteLine("====");
+            for (int i = a; i <= b; i++)
+            {
+                for (int j = 1; j <= i; j++)
+                {
+                    Console.Write(i);
+                }
+                Console.Write("\t");
+            }
+            Console.WriteLine();
+        }
+    }
+}
+/////////////////////////////////////////////////////////////////////////////////////
+Задание 2
+/////////////////////////////////////////////////////////////////////////////////////
+using System;
+namespace Lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int a, b;
+            Console.WriteLine("Enter the positive value of b: ");
+            b = int.Parse(Console.ReadLine());
+            Console.WriteLine("Enter the positive value of a (must be more than b): ");
+            a = int.Parse(Console.ReadLine());
+            while(a > 0)
+            {
+                a -= b;
+            }
+            Console.WriteLine("Unallocated part of a = {0}", b - Math.Abs(a));
+        }
+    }
+}
+/////////////////////////////////////////////////////////////////////////////////////
+Задание 3
+/////////////////////////////////////////////////////////////////////////////////////
+using System;
+namespace Lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int n, k = 1, sum = 0;
+            Console.Write("Enter the value of n (must be more than 1): ");
+            n = int.Parse(Console.ReadLine());
+            while (sum < n)
+            {
+                sum += k;
+                k++;
+            }
+            Console.WriteLine("Smallest K value = {0}\nThe sum = {1}", k - 1, sum);
+        }
+    }
+}
+/////////////////////////////////////////////////////////////////////////////////////
+Задание 4
+/////////////////////////////////////////////////////////////////////////////////////
+using System;
+namespace Lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            double s = 1000, p;
+            int k = 0;
+            Console.WriteLine("The initial deposit in the bank is 1000 rub\n" +
+                "Enter the value of P in percentages (0 < P < 25)");
+            p = double.Parse(Console.ReadLine());
+            while (s < 1100)
+            {
+                s += s * p / 100;
+                k += 1;
+            }
+            Console.WriteLine("Deposut ammount will exceed 1100 rub in {0} months.\n" +
+                "Total deposit value = {1}", k, s);
+        }
+    }
+}
+/////////////////////////////////////////////////////////////////////////////////////
+Задание 5
+/////////////////////////////////////////////////////////////////////////////////////
+using System;
+namespace Lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int a, b;
+            Console.Write("Enter the positive value of a: ");
+            a = int.Parse(Console.ReadLine());
+            Console.Write("Enter the positive value of b: ");
+            b = int.Parse(Console.ReadLine());
+            while(a != b)
+            {
+                if (a > b) { a -= b; }
+                else { b -= a; }
+            }
+            Console.WriteLine("Greatest common factor = {0}", a);
+        }
+    }
+}
+/////////////////////////////////////////////////////////////////////////////////////
+Задание 6
+/////////////////////////////////////////////////////////////////////////////////////
+using System;
+namespace Lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int n, temp, k = 3;
+            int[] f = new int[2] { 1, 1 };
+            Console.WriteLine("Enter one of the Fibonacci numbers (more than 1): ");
+            n = int.Parse(Console.ReadLine());
+            while (f[0] + f[1] != n)
+            {
+                temp = f[1];
+                f[1] = f[0] + f[1];
+                f[0] = temp;
+                k += 1;
+            }
+            Console.WriteLine("The sequence number of the entered Fibonacci number is {0}", k);
+        }
+    }
+}

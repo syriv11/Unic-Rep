@@ -1,0 +1,132 @@
+/////////////////////////////////////////////////////////////////////////////////////
+Задание 1
+/////////////////////////////////////////////////////////////////////////////////////
+using System;
+namespace Lab
+{
+    class Program
+    {
+        static void Rec(double i)
+        {
+            double k = 1;
+            Console.WriteLine("Prise: ");
+            while (k > 0.09)
+            {
+                Console.WriteLine(i * k);
+                k -= 0.1;
+            }
+        }
+
+        static void Main(string[] args)
+        {
+            double prise;
+            Console.Write("Enter the prise of 1 kilogram of sweets: ");
+            prise = float.Parse(Console.ReadLine());
+            Rec(prise);
+        }
+    }
+}
+/////////////////////////////////////////////////////////////////////////////////////
+Задание 2
+/////////////////////////////////////////////////////////////////////////////////////
+using System;
+namespace Lab
+{
+    class Program
+    {
+        static void Rec(int x)
+        {
+            float res = 1, k = 1;
+            while (k < x)
+            {
+                res *= k;
+                k += (float)0.1;
+            }
+            Console.WriteLine("The result is {0}", res);
+        }
+        static void Main(string[] args)
+        {
+            int n;
+            Console.Write("Enter the value of N (more than 0): ");
+            n = int.Parse(Console.ReadLine());
+            Rec(n);
+        }
+    }
+}
+/////////////////////////////////////////////////////////////////////////////////////
+Задание 3
+/////////////////////////////////////////////////////////////////////////////////////
+using System;
+namespace Lab
+{
+    class Program
+    {
+        static void Rec(int x)
+        {
+            int res = 1, key = 1, cout =  1;
+            while (cout < 2 * x - 1)
+            {
+                key += 2;
+                res += key;
+                cout += 2;
+            }
+            Console.WriteLine("The result is {0}", res);
+        }
+        static void Main(string[] args)
+        {
+            int n;
+            Console.Write("Enter the value of N (more than 0): ");
+            n = int.Parse(Console.ReadLine());
+            Rec(n);
+        }
+    }
+}
+/////////////////////////////////////////////////////////////////////////////////////
+Задание 4
+/////////////////////////////////////////////////////////////////////////////////////
+using System;
+namespace Lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            double a, res = 1;
+            int n;
+            Console.Write("Enter the value of a: ");
+            a = double.Parse(Console.ReadLine());
+            Console.Write("Enter the value of N (more than 0): ");
+            n = int.Parse(Console.ReadLine());
+            for (int i = 1; i <= n; i++)
+            {
+                res += Math.Pow(a, i);
+            }
+            Console.WriteLine("The result is " + res);
+        }
+    }
+}
+/////////////////////////////////////////////////////////////////////////////////////
+Задание 5
+/////////////////////////////////////////////////////////////////////////////////////
+using System;
+namespace Lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            double a, res = 1;
+            int n, key = 1;
+            Console.Write("Enter the value of a: ");
+            a = double.Parse(Console.ReadLine());
+            Console.Write("Enter the value of N (more than 0): ");
+            n = int.Parse(Console.ReadLine());
+            for (int i = 1; i <= n; i++)
+            {
+                key *= -1;
+                res += key * Math.Pow(a, i);
+            }
+            Console.WriteLine("The result is " + res);
+        }
+    }
+}

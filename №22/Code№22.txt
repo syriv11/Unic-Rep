@@ -1,0 +1,189 @@
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+Задание 1
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+using System;
+using System.Linq;
+using System.IO;
+
+namespace Lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string path = @"D:\Unic\Лаб. Работы(Введение)\№22\Folder for Files\File_1.txt";
+            Console.WriteLine("You are in the following directory: " + path);
+
+            StreamWriter sw_1 = new StreamWriter(path, false);
+            Console.Write("Enter any string to write it to the file: ");
+            sw_1.WriteLine(Console.ReadLine());
+            sw_1.Close();
+
+            string content;
+
+            StreamReader sr_1 = new StreamReader(path);
+            content = sr_1.ReadToEnd();
+            sr_1.Close();
+
+            content = content.Remove(0, content.IndexOf(' ') + 1);
+
+            StreamWriter sw_2 = new StreamWriter(path, false);
+            
+            sw_2.WriteLine(content);
+            sw_2.Close();
+
+            StreamReader sr_2 = new StreamReader(path);
+            Console.Write("The new value of file: " + sr_2.ReadToEnd());
+            sr_2.Close();
+        }
+    }
+}
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+Задание 2
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+using System;
+using System.Linq;
+using System.IO;
+
+namespace Lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string path = @"D:\Unic\Лаб. Работы(Введение)\№22\Folder for Files\";
+            Console.WriteLine("You are in the following directory: " + path);
+            Console.WriteLine("Enter the desired name of txt file in the suggested directory: ");
+            string name_file = Console.ReadLine();
+            if (name_file.Contains('.'))
+            {
+                name_file.Remove(name_file.IndexOf('.'));
+            }
+            int n, k;
+            Console.WriteLine("Enter the value of N (must be more than 0): ");
+            n = int.Parse(Console.ReadLine());
+            Console.WriteLine("Enter the value of K (must be more than 0): ");
+            k = int.Parse(Console.ReadLine());
+            path = path + name_file + ".txt";
+            File.WriteAllText(path, "");
+            for (int i = 0; i < n; i++)
+            {
+                for (int j = 0; j < k; j++)
+                {
+                    File.AppendAllText(path, "*");
+                }
+                File.AppendAllText(path, "\n");
+            }
+            Console.WriteLine("The content of the file is:\n======");
+            Console.WriteLine(File.ReadAllText(path));
+            File.Delete(path);
+        }
+    }
+}
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+Задание 3
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+using System;
+using System.Linq;
+using System.IO;
+
+namespace Lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            bool flag = false;
+            string path_both = @"D:\Unic\Лаб. Работы(Введение)\№22\Folder for Files\";
+            Console.WriteLine("You are in the following directory: " + path_both);
+            Console.WriteLine("Enter the desired name of first txt file in the suggested directory: ");
+            string file_name_1 = Console.ReadLine();
+            Console.WriteLine("Enter the desired name of second txt file in the suggested directory: ");
+            string file_name_2 = Console.ReadLine();
+            file_name_1 += ".txt";
+            file_name_2 += ".txt";
+            if (File.Exists(path_both + file_name_1) || File.Exists(path_both + file_name_2))
+            {
+                flag = true;
+            }
+            Console.WriteLine("Enter any string to write it to the first file: ");
+            File.WriteAllText(path_both + file_name_1, Console.ReadLine());
+            Console.WriteLine("Enter any string to write it to the second file: ");
+            File.WriteAllText(path_both + file_name_2, Console.ReadLine());
+
+            string file_content_1 = File.ReadAllText(path_both + file_name_1);
+            string file_content_2 = File.ReadAllText(path_both + file_name_2);
+
+            File.WriteAllText(path_both + file_name_1, file_content_2 + file_content_1);
+            Console.WriteLine("The content of the first file after processing is:\n======");
+            Console.WriteLine(File.ReadAllText(path_both + file_name_1));
+
+            if (flag == false)
+            {
+                File.Delete(path_both + file_name_1);
+                File.Delete(path_both + file_name_2);
+            }
+        }
+    }
+}
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+Задание 4
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+using System;
+using System.Linq;
+using System.IO;
+
+namespace Lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string content;
+            string path = @"D:\Unic\Лаб. Работы(Введение)\№22\Folder for Files\File_1.txt";
+            Console.WriteLine("You are in the following directory: " + path);
+            Console.WriteLine("\nEnter any string to write it to the current file:\n======");
+            File.WriteAllText(path, content = Console.ReadLine());
+            while (content.Contains("  "))
+            {
+                content = content.Replace("  ", " ");
+            }
+            File.WriteAllText(path, content);
+            Console.WriteLine("\nThe content of the curent file after processing:\n======\n" + File.ReadAllText(path) + "\n");
+        }
+    }
+}
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+Задание 5
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+using System;
+using System.Linq;
+using System.IO;
+
+namespace Lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string path = @"D:\Unic\Лаб. Работы(Введение)\№22\Folder for Files\Paragraph.txt";
+            Console.WriteLine("You are in the following directory: " + path + " \n");
+            Console.WriteLine("Current file contains the following text:\n==========\n");
+            string[] content = File.ReadAllLines(path);
+            for (int i = 0; i < content.Length; i++)
+            {
+                Console.WriteLine(content[i]);
+            }
+            Console.WriteLine("\n==========");
+            int count_paragraph = 0;
+            foreach (string str in content)
+            {
+                if (str.Contains("     "))
+                {
+                    count_paragraph++;
+                }
+            }
+            Console.WriteLine("The amount of paragraphs are {0}\n", count_paragraph);
+        }
+    }
+}

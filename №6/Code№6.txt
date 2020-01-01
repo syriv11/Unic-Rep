@@ -1,0 +1,212 @@
+//////////////////////////////////////////////////////////////////////////////////////
+Задание 1
+//////////////////////////////////////////////////////////////////////////////////////
+using System;
+namespace Lab_1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+          int n, res;
+          Console.Write("Enter the value of N(less than 864000): ");
+          n = int.Parse(Console.ReadLine());
+          if (n < 864000)
+          {
+            n %= 60;
+            switch (n)
+            {
+              case 1:
+                Console.WriteLine("1 second have passed since the beginning of the last menute");
+                break;
+              default:
+                Console.WriteLine("{0} seconds have passed since the beginning of the last menute", n);
+                break;
+            }
+          }
+          else
+          {
+            Console.WriteLine("N must be less than 864000");
+          }
+        }
+    }
+}
+//////////////////////////////////////////////////////////////////////////////////////
+Задание 2
+//////////////////////////////////////////////////////////////////////////////////////
+using System;
+namespace Lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            try
+            {
+                int[] day = new int[365];
+                int week = 1, k;
+                for (int i = 0; i < 365; i++)
+                {
+                    if (week != 7)
+                    {
+                        day[i] = week;
+                        week++;
+                    }
+                    else
+                    {
+                        week = 0;
+                        day[i] = week;
+                        week++;
+                    }
+                }
+                Console.Write("Enter the number of day: ");
+                k = int.Parse(Console.ReadLine());
+                k = day[k - 1];	
+                switch (k)
+                {
+                    case 1:
+                        Console.WriteLine("Monday");
+                        break;
+                    case 2:
+                        Console.WriteLine("Tuesday");
+                        break;
+                    case 3:
+                        Console.WriteLine("Wednesday");
+                        break;
+                    case 4:
+                        Console.WriteLine("Thursday");
+                        break;
+                    case 5:
+                        Console.WriteLine("Friday");
+                        break;
+                    case 6:
+                        Console.WriteLine("Saturday");
+                        break;
+                    case 0:
+                        Console.WriteLine("Sunday");
+                        break;
+                }
+            }
+            catch
+            {
+                Console.WriteLine("Invalid day value");
+            }
+        }
+    }
+}
+//////////////////////////////////////////////////////////////////////////////////////
+Задание 3
+//////////////////////////////////////////////////////////////////////////////////////
+using System;
+namespace Lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            try
+            {
+                int[] day = new int[365];
+                int week = 1, k;
+                Console.Write("Enter the value of n (0 < n < 8): ");
+                week = int.Parse(Console.ReadLine());
+                if (week < 1 || week > 7)
+                {
+                    Console.WriteLine("Invalid value of n");
+                }
+                else
+                {
+                    for (int i = 0; i < 365; i++)
+                    {
+                        if (week != 8)
+                        {
+                            day[i] = week;
+                            week++;
+                        }
+                        else
+                        {
+                            week = 1;
+                            day[i] = week;
+                            week++;
+                        }
+                    }
+                    Console.Write("Enter the number of day: ");
+                    k = int.Parse(Console.ReadLine());
+                    k = day[k - 1];
+                    switch (k)
+                    {
+                        case 1:
+                            Console.WriteLine("Monday");
+                            break;
+                        case 2:
+                            Console.WriteLine("Tuesday");
+                            break;
+                        case 3:
+                            Console.WriteLine("Wednesday");
+                            break;
+                        case 4:
+                            Console.WriteLine("Thursday");
+                            break;
+                        case 5:
+                            Console.WriteLine("Friday");
+                            break;
+                        case 6:
+                            Console.WriteLine("Saturday");
+                            break;
+                        case 7:
+                            Console.WriteLine("Sunday");
+                            break;
+                    }
+                }
+            }
+            catch
+            {
+                Console.WriteLine("Invalid day value");
+            }
+        }
+    }
+}
+//////////////////////////////////////////////////////////////////////////////////////
+Задание 4
+//////////////////////////////////////////////////////////////////////////////////////
+using System;
+namespace Lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int a, b, c, rect, sqr;
+            Console.WriteLine("Enter values a, b and c: ");
+            Console.Write("1) a = ");
+            a = int.Parse(Console.ReadLine());
+            Console.Write("2) b = ");
+            b = int.Parse(Console.ReadLine());
+            Console.Write("2) c = ");
+            c = int.Parse(Console.ReadLine());
+            rect = a * b;
+            sqr = c * c;
+            Console.WriteLine
+                ("The number of squares places in the rectangle is {0}, the area of the unoccupied part of rectangle is {1}",
+                rect / sqr, rect % sqr);
+        }
+    }
+}
+//////////////////////////////////////////////////////////////////////////////////////
+Задание 5
+//////////////////////////////////////////////////////////////////////////////////////
+using System;
+namespace Lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int year, cent;
+            Console.Write("Enter a year: ");
+            year = int.Parse(Console.ReadLine());
+            cent = year / 100 + 1;
+            Console.WriteLine("The century of the introduced year is " + cent);
+        }
+    }
+}

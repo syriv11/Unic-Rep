@@ -1,0 +1,194 @@
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+Задание 1
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+using System;
+using System.Linq;
+
+namespace Lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string str;
+            Console.Write("Enter any text: ");
+            str = Console.ReadLine();
+            str = str.Replace("  ", " ");
+            string[] words = str.Split(new char[] { '.', ',', ' ', '?', '!' }, StringSplitOptions.RemoveEmptyEntries);
+            Console.WriteLine("The amount of words in the entered text is " + (words.Length));
+        }
+    }
+}
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+Задание 2
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+using System;
+using System.Linq;
+
+namespace Lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string str;
+            Console.Write("Enter any text: ");
+            str = Console.ReadLine();
+            str = str.Replace("  ", " ");
+            string[] words = str.Split(new char[] { '.', ',', ' ', '?', '!' }, StringSplitOptions.RemoveEmptyEntries);
+            string min = words[0];
+            foreach (string item in words)
+            {
+                if (item.Length < min.Length)
+                {
+                    min = item;
+                }
+            }
+            Console.WriteLine("The shortest word in the text is " + min);
+        }
+    }
+}
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+Задание 3
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+using System;
+using System.Linq;
+
+namespace Lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string str;
+            string temp_word;
+            char temp_letter;
+            Console.Write("Enter any text with all uppercase: ");
+            str = Console.ReadLine();
+            str = str.Replace("  ", " ");
+            string[] words = str.Split(new char[] { '.', ',', ' ', '?', '!' }, StringSplitOptions.RemoveEmptyEntries);
+            foreach (string item in words)
+            {
+                temp_word = item;
+                temp_letter = item[0];
+                temp_word = temp_letter + item.TrimStart(temp_letter).Replace(temp_letter, '.');
+                str = str.Replace(item, temp_word);
+            }
+            Console.WriteLine("The text after processing is:\n" + str);
+        }
+    }
+}
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+Задание 4
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+using System;
+using System.Linq;
+
+namespace Lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string str;
+            string vowel = "AaEeIiOoUuYy" + "АаЕеИиОоУуЫыЭэЮюЯя";
+            int count_vowel = 0;
+            Console.Write("Enter any text: ");
+            str = Console.ReadLine();
+            foreach (char item in str)
+            {
+                if (vowel.Contains(item))
+                {
+                    count_vowel++;
+                }
+            }
+            Console.WriteLine("The amount of vowel letters in the entered text is " + count_vowel);
+        }
+    }
+}
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+Задание 5
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+using System;
+using System.Linq;
+
+namespace Lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string path, file = "";
+            Console.WriteLine("Enter the directory of the file: ");
+            path = Console.ReadLine();
+            Console.Clear();
+            Console.WriteLine("The file is in the following directory: " + path);
+            for (int i = path.LastIndexOf('\\') + 1; i < path.LastIndexOf('.'); i++)
+            {
+                file += path[i];
+            }
+            Console.WriteLine("File name - " + file);
+        }
+    }
+}
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+Задание 6
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+using System;
+using System.Linq;
+
+namespace Lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string path;
+            Console.Write("Enter the directory: ");
+            path = Console.ReadLine();
+            string[] catalog = path.Split(new char[] { '\\' }, StringSplitOptions.RemoveEmptyEntries);
+            if (catalog.Length != 2)
+            {
+                Console.WriteLine("Name of the last directory - " + catalog[catalog.Length - 2]);
+            }
+            else
+            {
+                Console.WriteLine("Name of the last directory - \\");
+            }
+        }
+    }
+}
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+Задание 7
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+using System;
+using System.Linq;
+
+namespace Lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string str, result = "";
+            Console.Write("Enter any string: ");
+            str = Console.ReadLine();
+            str = str.Replace(" ", "");
+            for (int i = 0; i < str.Length; i++)
+            {
+                if (i % 2 != 0)
+                {
+                    result += str[i];
+                }
+            }
+            for (int i = str.Length - 1; i >= 0; i--)
+            {
+                if (i % 2 == 0)
+                {
+                    result += str[i];
+                }
+            }
+            Console.WriteLine("The result is:\n" + result);
+        }
+    }
+}

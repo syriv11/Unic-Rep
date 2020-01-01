@@ -1,0 +1,153 @@
+/////////////////////////////////////////////////////////////////////////////////////
+Задача 1
+/////////////////////////////////////////////////////////////////////////////////////
+using System;
+namespace Lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int n, key = -1;
+            Console.Write("Enter the value of N (must be more than 0): ");
+            n = int.Parse(Console.ReadLine());
+            int[] arr = new int[n];
+            Console.WriteLine("The array is:");
+            foreach (int i in arr)
+            {
+                key += 2;
+                Console.Write("{0} ", arr[i] = key);
+            }
+            Console.WriteLine();
+        }
+    }
+}
+/////////////////////////////////////////////////////////////////////////////////////
+Задача 2
+/////////////////////////////////////////////////////////////////////////////////////
+using System;
+namespace Lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int n, a;
+            double d;
+            Console.Write("Enter the value of N (must be more than 1): ");
+            n = int.Parse(Console.ReadLine());
+            Console.Write("Enter the value of A: ");
+            a = int.Parse(Console.ReadLine());
+            Console.Write("Enter the value of D: ");
+            d = int.Parse(Console.ReadLine());
+            double[] arr = new double[n];
+            for (int i = 0; i < n; i++)
+            {
+                arr[i] = a * Math.Pow(d, i);
+            }
+            Console.WriteLine("==========\nThe array is: ");
+            foreach (int i in arr)
+            {
+                Console.Write(i + " ");
+            }
+            Console.WriteLine();
+        }
+    }
+}
+/////////////////////////////////////////////////////////////////////////////////////
+Задача 3
+/////////////////////////////////////////////////////////////////////////////////////
+using System;
+namespace Lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int n, a, b, sum = 0;
+            Console.Write("Enter the value of N (must be more than 1): ");
+            n = int.Parse(Console.ReadLine());
+            Console.Write("Enter the value of A: ");
+            a = int.Parse(Console.ReadLine());
+            Console.Write("Enter the value of B: ");
+            b = int.Parse(Console.ReadLine());
+            int[] arr = new int[n];
+            arr[0] = a;
+            arr[1] = b;
+            for (int i = 2; i < n; i++)
+            {
+                for ( int j = i; j >= 0; j--)
+                {
+                    sum += arr[j];
+                }
+                arr[i] = sum;
+                sum = 0;
+            }
+            Console.WriteLine("==========\nThe array is: ");
+            foreach (int i in arr)
+            {
+                Console.Write(i + " ");
+            }
+            Console.WriteLine();
+        }
+    }
+}
+/////////////////////////////////////////////////////////////////////////////////////
+Задача 4
+/////////////////////////////////////////////////////////////////////////////////////
+using System;
+namespace Lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int n, a, b;
+            Console.Write("Enter the value of N (must be more than 1): ");
+            n = int.Parse(Console.ReadLine());
+            int[] arr = new int[n];
+            for (int i = 0; i < n; i++)
+            {
+                arr[i] = i;
+            }
+            Console.WriteLine("==========\nThe array is: ");
+            for (int i = 0; i < n; i++)
+            {
+                Console.Write(arr[i] + " " + arr[n - i - 1] + " ");
+            }
+            Console.WriteLine();
+        }
+    }
+}
+/////////////////////////////////////////////////////////////////////////////////////
+Задача 5
+/////////////////////////////////////////////////////////////////////////////////////
+using System;
+namespace Lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int n;
+            Console.Write("Enter the value of N (must be more than 1): ");
+            n = int.Parse(Console.ReadLine());
+            int[] arr = new int[n];
+            for (int i = 0; i < n; i++)
+            {
+                arr[i] = i;
+            }
+            Console.WriteLine("==========\nThe array is: ");
+            for (int i = 0; i < n; i++)
+            {
+                if (arr[i] % 2 == 1 && arr[i] != 0) { Console.Write(arr[i] + " "); }
+            }
+            Console.WriteLine("\n===");
+            for (int i = n - 1; i >= 0; i--)
+            {
+                if (arr[i] % 2 == 0 || arr[i] == 0) { Console.Write(arr[i] + " "); }
+            }
+            Console.WriteLine();
+        }
+    }
+}

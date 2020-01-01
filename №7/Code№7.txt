@@ -1,0 +1,159 @@
+/////////////////////////////////////////////////////////////////////////////////
+Задание 1
+/////////////////////////////////////////////////////////////////////////////////
+using System;
+namespace Lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int a, b;
+            Console.Write("Statement: \"Inequalities a > 2 and b <= 3 are satisfied\"\nEnter values of a and b:\na = ");
+            a = int.Parse(Console.ReadLine());
+            Console.Write("b = ");
+            b = int.Parse(Console.ReadLine());
+            if (a > 2 && b <= 3) { Console.WriteLine("The statement is True"); }
+            else { Console.WriteLine("The statement is False"); }
+        }
+    }
+}
+/////////////////////////////////////////////////////////////////////////////////
+Задание 2
+/////////////////////////////////////////////////////////////////////////////////
+using System;
+namespace Lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int a, b, c;
+            Console.Write("Statement: \"Inequalities a < b < c are satisfied\"\nEnter values of a, b and c:\na = ");
+            a = int.Parse(Console.ReadLine());
+            Console.Write("b = ");
+            b = int.Parse(Console.ReadLine());
+            Console.Write("c = ");
+            c = int.Parse(Console.ReadLine());
+            if (a < b && b < c) { Console.WriteLine("The statement is True"); }
+            else { Console.WriteLine("The statement is False"); }
+        }
+    }
+}
+/////////////////////////////////////////////////////////////////////////////////
+Задание 3
+/////////////////////////////////////////////////////////////////////////////////
+using System;
+namespace Lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int a;
+            Console.Write("Statement: \"The entered number is an even two-digit number\"\nEnter the value of a: ");
+            a = int.Parse(Console.ReadLine());
+            bool par = (a % 2 == 0) ? true : false;
+            bool dig = (a > 9 && a < 100) ? true : false;
+            if (par && dig == true) { Console.WriteLine("The statement is True"); }
+            else { Console.WriteLine("The statement is False"); }
+
+        }
+    }
+}
+/////////////////////////////////////////////////////////////////////////////////
+Задание 4
+/////////////////////////////////////////////////////////////////////////////////
+using System;
+namespace Lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int a, _1, _2, _3;
+            Console.Write("Statement: \"The digits of the entered number form an increasing or decreasing sequence\"\nEnter the value of a: ");
+            a = int.Parse(Console.ReadLine());
+            _1 = a / 100; _2 = a % 100 / 10; _3 = a % 10;
+            if (_1 < _2  && _2 < _3 || _3 < _2 && _2 < _1) { Console.WriteLine("The statement is True"); }
+            else { Console.WriteLine("The statement is False"); }
+        }
+    }
+}
+/////////////////////////////////////////////////////////////////////////////////
+Задание 5
+/////////////////////////////////////////////////////////////////////////////////
+using System;
+namespace Lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int a, _1, _2, _3, _4;
+            Console.Write("Statement: \"The entered number is read the same from left to right and from right to left\"\nEnter the value of a: ");
+            a = int.Parse(Console.ReadLine());
+            _1 = a / 1000; _2 = a % 1000 / 100; _3 = a % 100 / 10; _4 = a % 10;
+            if (_1 == _4 && _2 == _3) { Console.WriteLine("The statement is True"); }
+            else { Console.WriteLine("The statement is False"); }
+        }
+    }
+}
+/////////////////////////////////////////////////////////////////////////////////
+Задание 6
+/////////////////////////////////////////////////////////////////////////////////
+using System;
+namespace Lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            float a, b, c;
+            Console.WriteLine("Statement: \"The triangle with sides a, b and c is rectangular\"");
+            Console.WriteLine("Enter the lengths of the sides of the triangle: ");
+            Console.Write("a = ");
+            a = float.Parse(Console.ReadLine());
+            Console.Write("b = ");
+            b = float.Parse(Console.ReadLine());
+            Console.Write("c = ");
+            c = float.Parse(Console.ReadLine());
+            if (Math.Pow(a, 2) == Math.Pow(b, 2) + Math.Pow(c, 2) || 
+                Math.Pow(b, 2) == Math.Pow(a, 2) + Math.Pow(c, 2) || 
+                Math.Pow(c, 2) == Math.Pow(a, 2) + Math.Pow(b, 2))
+            {
+                Console.WriteLine("The statement is True");
+            }
+            else
+            {
+                Console.WriteLine("The statement is False");
+            }
+        }
+    }
+}
+/////////////////////////////////////////////////////////////////////////////////
+Задание 7
+/////////////////////////////////////////////////////////////////////////////////
+using System;
+namespace Lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int a, b, c;
+            Console.WriteLine("Statement: \"The triangle with sides a, b and c is exists\"");
+            Console.Write("Enter the values of the sides of the triangle:\na = ");
+            a = int.Parse(Console.ReadLine());
+            Console.Write("b = ");
+            b = int.Parse(Console.ReadLine());
+            Console.Write("c = ");
+            c = int.Parse(Console.ReadLine());
+            if (a > 0 && b > 0 && c > 0 && a + b > c && a + c > b && b + c > a)
+            {
+                Console.WriteLine("The statement is True");
+            }
+            else { Console.WriteLine("The statement is False"); }
+        }
+    }
+}

@@ -1,0 +1,125 @@
+//////////////////////////////////////////////////////////////////////////
+Задание 1
+//////////////////////////////////////////////////////////////////////////
+using System;
+namespace Lab_1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+          int byt;
+          Console.Write("Enter the file weight: ");
+          byt = int.Parse(Console.ReadLine());
+          Console.WriteLine("File weight in kilobytes = {0}", byt /= 1024);
+        }
+    }
+}
+//////////////////////////////////////////////////////////////////////////
+Задание 2
+//////////////////////////////////////////////////////////////////////////
+using System;
+namespace Lab_1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+          int a, b, res;
+          Console.Write("Enter the value of a: ");
+          a = int.Parse(Console.ReadLine());
+          Console.Write("Enter the value of b: ");
+          b = int.Parse(Console.ReadLine());
+          if (a >= b)
+          {
+            Console.WriteLine("a contains {0} segments b", res = a / b);
+          }
+          else
+          {
+            Console.WriteLine("a must be less than b");
+          }
+        }
+    }
+}
+//////////////////////////////////////////////////////////////////////////
+Задание 3
+//////////////////////////////////////////////////////////////////////////
+using System;
+namespace Lab_1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+          int a, b, res;
+          Console.Write("Enter the value of a: ");
+          a = int.Parse(Console.ReadLine());
+          Console.Write("Enter the value of b: ");
+          b = int.Parse(Console.ReadLine());
+          if (a >= b)
+          {
+            Console.WriteLine("Unoccupated part of a = {0}", res = a % b);
+          }
+          else
+          {
+            Console.WriteLine("a must be less than b");
+          }
+        }
+    }
+}
+//////////////////////////////////////////////////////////////////////////
+Задание 4
+//////////////////////////////////////////////////////////////////////////
+using System;
+namespace Lab_1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+          int a;
+          string res = "";
+          Console.Write("Enter the value of a(it must be double-digit): ");
+          a = int.Parse(Console.ReadLine());
+          if (a > 9 && a < 100)
+          {
+            while (a != 0)
+            {
+              res += Convert.ToString(a % 10);
+              a /= 10;
+            }
+            Console.WriteLine("The rearrangement result is {0}", res);
+          }
+          else
+          {
+            Console.Write("a must be double-digit");
+          }
+        }
+    }
+}
+//////////////////////////////////////////////////////////////////////////
+Задание 5
+//////////////////////////////////////////////////////////////////////////
+using System;
+namespace Lab_1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+          int a, res;
+          Console.Write("Enter the value of a(it must be three-digit): ");
+          a = int.Parse(Console.ReadLine());
+          if (a > 99 && a < 1000)
+          {
+            res = a % 100;
+            a /= 100;
+            Console.WriteLine("The rearrangement result is {0}", Convert.ToString(res) + Convert.ToString(a));
+          }
+          else
+          {
+            Console.WriteLine("a must be three-digit");
+          }
+        }
+    }
+}

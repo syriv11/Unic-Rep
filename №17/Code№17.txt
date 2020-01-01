@@ -1,0 +1,590 @@
+///////////////////////////////////////////////////////////////////////////////
+Задание 1
+///////////////////////////////////////////////////////////////////////////////
+using System;
+namespace Lab
+{
+    class Program
+    {
+        // Функция для заполнения массива
+        public static void Fill(int[] x)
+        {
+            char choose;
+            Console.WriteLine("Enter the desired type of array filling\n1) Manual input\n2) Automatically enter random numbers");
+            choose = char.Parse(Console.ReadLine());
+            switch (choose)
+            {
+                case '1':
+                    Console.Clear();
+                    Console.WriteLine("Enter the values of all elements of the array one at a time:\n======");
+                    for (int i = 0; i < x.Length; i++)
+                    {
+                        Console.Write("{0}) ", i + 1);
+                        x[i] = int.Parse(Console.ReadLine());
+                    }
+                    break;
+                case '2':
+                    Random rand = new Random();
+                    for (int i = 0; i < x.Length; i++)
+                    {
+                        x[i] = rand.Next(10);
+                    }
+                    break;
+                default:
+                    Console.WriteLine("Wrong command!");
+                    Environment.Exit(1);
+                    break;
+            }
+        }
+
+        //Функция для вывода массива
+
+        public static void Print(int[] a)
+        {
+            Console.WriteLine("==========");
+            for (int i = 0; i < a.Length; i++)
+            {
+                Console.Write(a[i] + " ");
+            }
+            Console.WriteLine("\n==========");
+        }
+
+        //Работа с массивом
+
+        static void Main(string[] args)
+        {
+            int n;
+            Console.Write("Enter the value of N (size of array): ");
+            n = int.Parse(Console.ReadLine());
+            int[] a = new int[n];
+            Console.Clear();
+            Fill(a);
+            Console.Clear();
+            Console.WriteLine("The source array is: ");
+            Print(a);
+
+            int count = 1;
+            for (int i = 0; i < n - 1; i++)
+            {
+                if (a[i] != a[i + 1])
+                {
+                    count++;
+                }
+            }
+            int[] countS = new int[count];
+            for (int i = 0; i < count; i++)
+            {
+                countS[i]++;
+            }
+            int[] valueS = new int[count];
+            valueS[0] = a[0];
+            int index = 0;
+            for (int i = 0; i < n - 1; i++)
+            {
+                if (a[i] == a[i + 1])
+                {
+                    countS[index]++;
+                }
+                else
+                {
+                    index++;
+                    valueS[index] = a[i + 1];
+                }
+            }
+
+            Console.WriteLine();
+            Console.WriteLine("====== New arrays B and C after processing ======\n");
+            Console.WriteLine("The array B(counts of all series): ");
+            Print(countS);
+            Console.WriteLine("\nThe array C(values of all series): ");
+            Print(valueS);
+
+        }
+    }
+}
+///////////////////////////////////////////////////////////////////////////////
+Задание 2
+///////////////////////////////////////////////////////////////////////////////
+using System;
+using System.Linq;
+namespace Lab
+{
+    class Program
+    {
+        // Функция для заполнения массива
+        public static void Fill(int[] x)
+        {
+            char choose;
+            Console.WriteLine("Enter the desired type of array filling\n1) Manual input\n2) Automatically enter random numbers");
+            choose = char.Parse(Console.ReadLine());
+            switch (choose)
+            {
+                case '1':
+                    Console.Clear();
+                    Console.WriteLine("Enter the values of all elements of the array one at a time:\n======");
+                    for (int i = 0; i < x.Length; i++)
+                    {
+                        Console.Write("{0}) ", i + 1);
+                        x[i] = int.Parse(Console.ReadLine());
+                    }
+                    break;
+                case '2':
+                    Random rand = new Random();
+                    for (int i = 0; i < x.Length; i++)
+                    {
+                        x[i] = rand.Next(10);
+                    }
+                    break;
+                default:
+                    Console.WriteLine("Wrong command!");
+                    Environment.Exit(1);
+                    break;
+            }
+        }
+
+        //Функция для вывода массива
+
+        public static void Print(int[] a)
+        {
+            Console.WriteLine("==========");
+            for (int i = 0; i < a.Length; i++)
+            {
+                Console.Write(a[i] + " ");
+            }
+            Console.WriteLine("\n==========");
+        }
+
+        //Начало работы с массивом
+
+        static void Main(string[] args)
+        {
+            int n, l;
+            Console.Write("Enter the value of N (size of array): ");
+            n = int.Parse(Console.ReadLine());
+            int[] a = new int[n];
+            Console.Clear();
+            Fill(a);
+            Console.Clear();
+            Console.Write("Enter the value of L (more than 0): ");
+            l = int.Parse(Console.ReadLine());
+            Console.WriteLine("The source array is: ");
+            Print(a);
+
+            ///Создание массива с удаленными сериями, по длине большими l
+
+            int count = 0, lengthS = 1, index = 0;
+            int[] newA = new int[n];
+            for (int i = 0; i < n; i++)
+            {
+                if (i != n - 1)
+                {
+                    if (a[i] == a[i + 1])
+                    {
+                        lengthS++;
+                    }
+                    else
+                    {
+                        if (lengthS > l)
+                        {
+                            newA[index] = 0;
+                            index++;
+                            lengthS = 1;
+                            count++;
+                        }
+                        else
+                        {
+                            count += lengthS;
+                            int temp = a[i];
+                            for (int j = 0; j < lengthS; j++)
+                            {
+                                newA[index] = temp;
+                                index++;
+                            }
+                            lengthS = 1;
+                        }
+                    }
+                }
+                else
+                {
+                    if (lengthS > l)
+                    {
+                        newA[index] = 0;
+                        index++;
+                        lengthS = 1;
+                        count++;
+                    }
+                    else
+                    {
+                        count += lengthS;
+                        int temp = a[i];
+                        for (int j = 0; j < lengthS; j++)
+                        {
+                            newA[index] = temp;
+                            index++;
+                        }
+                        lengthS = 1;
+                    }
+                }
+            }
+
+            ///Создание массива нужного размера для дальнейшего вывода на экран
+
+            int[] finalA = new int[count];
+            for (int i = 0; i < count; i++)
+            {
+                finalA[i] = newA[i];
+            }
+
+            //Вывод результата на экран
+
+            Console.WriteLine();
+            Console.WriteLine("The array after proсessing: ");
+            Print(finalA);
+            Console.WriteLine(count);
+        }
+    }
+}
+///////////////////////////////////////////////////////////////////////////////
+Задание 3
+///////////////////////////////////////////////////////////////////////////////
+using System;
+using System.Linq;
+namespace Lab
+{
+    class Program
+    {
+        // Функция для заполнения массива
+
+        public static void Fill(int[] x)
+        {
+            char choose;
+            Console.WriteLine("Enter the desired type of array filling\n1) Manual input\n2) Automatically enter random numbers");
+            choose = char.Parse(Console.ReadLine());
+            switch (choose)
+            {
+                case '1':
+                    Console.Clear();
+                    Console.WriteLine("Enter the values of all elements of the array one at a time (not the same):\n======");
+                    for (int i = 0; i < x.Length; i++)
+                    {
+                        Console.Write("{0}) ", i + 1);
+                        x[i] = int.Parse(Console.ReadLine());
+                    }
+                    break;
+                case '2':
+                    Random rand = new Random();
+                    for (int i = 0; i < x.Length; i++)
+                    {
+                        x[i] = rand.Next(10);
+                    }
+                    break;
+                default:
+                    Console.WriteLine("Wrong command!");
+                    Environment.Exit(1);
+                    break;
+            }
+        }
+
+        //Функция для вывода массива
+
+        public static void Print(int[] a)
+        {
+            Console.WriteLine("==========");
+            for (int i = 0; i < a.Length; i++)
+            {
+                Console.Write(a[i] + " ");
+            }
+            Console.WriteLine("\n==========");
+        }
+
+        //Начало работы
+
+        static void Main(string[] args)
+        {
+
+            ///Ввод необходимых данных
+
+            int n, k;
+            Console.Write("Enter the value of N (size of array): ");
+            n = int.Parse(Console.ReadLine());
+            int[] a = new int[n];
+            Console.Clear();
+            Fill(a);
+            Console.Clear();
+            Console.WriteLine("The array is: ");
+            Print(a);
+            Console.WriteLine();
+            Console.Write("Enter the value of K (more than 0): ");
+            k = int.Parse(Console.ReadLine());
+            if (k <= 0)
+            {
+                Console.WriteLine("Wrong value of K!");
+                Environment.Exit(1);
+            }
+            Console.Clear();
+            Console.WriteLine("The source array is: ");
+            Print(a);
+            Console.WriteLine();
+
+            ///Начало выполнения основной задачи
+
+            int numS1 = 1, lengthS1 = 1, elemS1 = a[0], posS1 = 0;
+            int lengthS2 = 1, elemS2 = a[n - 1];
+            for (int i = n - 1; i >= 0; i--)
+            {
+                if (a[i] == a[i - 1])
+                {
+                    lengthS2++;
+                }
+                else
+                {
+                    break;
+                }
+            }
+
+            for (int i = 0; i < n - 1; i++)
+            {
+                if (numS1 != k)
+                {
+                    if (a[i] != a[i + 1])
+                    {
+                        elemS1 = a[i + 1];
+                        numS1++;
+                    }
+                }
+                else
+                {
+                    posS1 = i;
+                    for (int j = i; ; j++)
+                    {
+                        if (a[j] == a[j + 1])
+                        {
+                            lengthS1++;
+                        }
+                        else
+                        {
+                            break;
+                        }
+                    }
+                    break;
+                }
+            }
+
+            int index = 0;
+            int[] b = new int[n];
+            for (int i = 0; i <= n - lengthS2; i++, index++)
+            {
+                b[index] = a[i];
+                if (i == posS1)
+                {
+                    for (; index < i + lengthS2; index++)
+                    {
+                        b[index] = elemS2;
+                    }
+                    i += lengthS1 - 1;
+                    index--;
+                }
+                if (i == n - lengthS2)
+                {
+                    for (; index < n; index++)
+                    {
+                        b[index] = elemS1;
+                    }
+                }
+                
+            }
+
+            ///Вывод результата на экран
+
+            Console.WriteLine("The array after proсessing: ");
+            Print(b);
+        }
+    }
+}
+///////////////////////////////////////////////////////////////////////////////
+Задание 4
+///////////////////////////////////////////////////////////////////////////////
+using System;
+using System.Linq;
+namespace Lab
+{
+    class Program
+    {
+        // Функция для заполнения точек множества
+
+        public static void Fill(int[,] x, int n)
+        {
+            char choose;
+            Console.WriteLine("Each point in a given set has it\'s own coordinates.");
+            Console.WriteLine("Enter the desired type of filling the coordinates of each point:\n1) Manual input\n2) Automatically enter random numbers");
+            choose = char.Parse(Console.ReadLine());
+            switch (choose)
+            {
+                case '1':
+                    Console.Clear();
+                    Console.WriteLine("Enter the coordinates of each point:\n======");
+                    for (int i = 0; i < n; i++)
+                    {
+                        Console.Write("Point {0} (x): ", i + 1);
+                        x[i,0] = int.Parse(Console.ReadLine());
+                        Console.Write("Point {0} (y): ", i + 1);
+                        x[i,1] = int.Parse(Console.ReadLine());
+                    }
+                    break;
+                case '2':
+                    Random rand = new Random();
+                    for (int i = 0; i < n; i++)
+                    {
+                        x[i,0] = rand.Next(-10, 10);
+                        x[i,1] = rand.Next(-10, 10);
+                    }
+                    break;
+                default:
+                    Console.WriteLine("Wrong command!");
+                    Environment.Exit(1);
+                    break;
+            }
+        }
+
+        //Начало работы
+
+        static void Main(string[] args)
+        {
+
+            ///Ввод необходимых данных
+
+            int n;
+            Console.Write("Enter the number of points in set A (the value of N): ");
+            n = int.Parse(Console.ReadLine());
+            int[,] a = new int[n, 2];
+            Console.Clear();
+            Fill(a, n);
+            Console.Clear();
+
+            ///Начало выполнения основной задачи
+
+            bool flag = true;
+            int max = 0;
+            double result;
+            for (int i = 0; i < n; i++)
+            {
+                if (a[i,0] < 0 && a[i,1] > 0)
+                {
+                    flag = false;
+                    if (Math.Abs(a[i, 0]) + Math.Abs(a[i, 1]) > max)
+                    {
+                        max = i;
+                    }
+                }
+            }
+
+            ///Вывод результата на экран
+            
+            if (flag == true)
+            {
+                Console.WriteLine("There is no points in second quarter.\nPoint 0 with coordinates (0, 0)");
+            }
+            else
+            {
+                result = Math.Sqrt(Math.Pow(a[max, 0], 2) + Math.Pow(a[max, 1], 2));
+                Console.WriteLine("The farthest point of the set of second quarter:");
+                Console.WriteLine($"Point {max + 1} with coordinates ({a[max, 0]}, {a[max, 1]})\nDistance from the origin = {Convert.ToSingle(result)}");
+            }
+        }
+    }
+}
+///////////////////////////////////////////////////////////////////////////////
+Задание 5
+///////////////////////////////////////////////////////////////////////////////
+using System;
+using System.Linq;
+namespace Lab
+{
+    class Program
+    {
+        // Функция для заполнения точек множества
+
+        public static void Fill(int[,] x, int n)
+        {
+            char choose;
+            Console.WriteLine("Each point in a given set has it\'s own coordinates.");
+            Console.WriteLine("Enter the desired type of filling the coordinates of each point:\n1) Manual input\n2) Automatically enter random numbers");
+            choose = char.Parse(Console.ReadLine());
+            switch (choose)
+            {
+                case '1':
+                    Console.Clear();
+                    Console.WriteLine("Enter the coordinates of each point:\n======");
+                    for (int i = 0; i < n; i++)
+                    {
+                        Console.Write("Point {0} (x): ", i + 1);
+                        x[i,0] = int.Parse(Console.ReadLine());
+                        Console.Write("Point {0} (y): ", i + 1);
+                        x[i,1] = int.Parse(Console.ReadLine());
+                    }
+                    break;
+                case '2':
+                    Random rand = new Random();
+                    for (int i = 0; i < n; i++)
+                    {
+                        x[i,0] = rand.Next(-10, 10);
+                        x[i,1] = rand.Next(-10, 10);
+                    }
+                    break;
+                default:
+                    Console.WriteLine("Wrong command!");
+                    Environment.Exit(1);
+                    break;
+            }
+        }
+
+        //Начало работы
+
+        static void Main(string[] args)
+        {
+
+            ///Ввод необходимых данных
+
+            int n;
+            Console.Write("Enter the number of points in set A (the value of N > 2): ");
+            n = int.Parse(Console.ReadLine());
+            int[,] a = new int[n, 2];
+            Console.Clear();
+            Fill(a, n);
+            Console.Clear();
+
+            ///Начало выполнения основной задачи
+
+            int[] max_points = new int[n];
+            double max_P = 0, temp = 0;
+            for (int i = 0; i < n - 2; i++)
+            {
+                for (int j = i + 1; j < n - 1; j++)
+                {
+                    for (int k = j + 1; k < n; k++)
+                    {
+                        temp = Math.Sqrt(Math.Abs((Math.Pow(a[i, 0], 2) - Math.Pow(a[j, 0], 2)) + (Math.Pow(a[i, 1], 2) - Math.Pow(a[j, 1], 2))))
+                             + Math.Sqrt(Math.Abs((Math.Pow(a[j, 0], 2) - Math.Pow(a[k, 0], 2)) + (Math.Pow(a[j, 1], 2) - Math.Pow(a[k, 1], 2))))
+                             + Math.Sqrt(Math.Abs((Math.Pow(a[k, 0], 2) - Math.Pow(a[i, 0], 2)) + (Math.Pow(a[k, 1], 2) - Math.Pow(a[i, 1], 2))));
+                        if (temp > max_P)
+                        {
+                            max_P = temp;
+                            max_points[0] = i;
+                            max_points[1] = j;
+                            max_points[2] = k;
+                        }
+                    }
+                }
+            }
+
+            ///Вывод результата на экран
+
+            Console.WriteLine("==========");
+            Console.WriteLine($"The largest perimeter of a triangle = {Convert.ToSingle(max_P)}. It consist of the following points:");
+            for (int i = 0; i < 3; i++)
+            {
+                Console.WriteLine($"Point {max_points[i] + 1} with coordinates ({a[max_points[i], 0]}, {a[max_points[i], 1]})");
+            }
+        }
+    }
+}

@@ -1,0 +1,133 @@
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+Задание 1
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+using System;
+using System.Linq;
+
+namespace Lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            char c;
+            Console.Write("Enter any symbol: ");
+            c = char.Parse(Console.ReadLine());
+            Console.WriteLine("According to the code table:");
+            Console.WriteLine($"The element behind the entered symbol is {(char)(c - 1)}\nThe element behind the entered symbol is {(char)(c + 1)}\n");
+        }
+    }
+}
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+Задание 2
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+using System;
+using System.Linq;
+
+namespace Lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string str;
+            Console.Write("Enter any text: ");
+            str = Console.ReadLine();
+            str = str.Replace(" ", "");
+            for (int i = 0; i < str.Length; i++)
+            {
+                if (str[i] != ' ')
+                {
+                    str = str.Insert(i + 1, " ");
+                }
+            }
+            Console.WriteLine("The entered text after processing:\n" + str);
+        }
+    }
+}
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+Задание 3
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+using System;
+using System.Linq;
+
+namespace Lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string str;
+            int count = 0;
+            Console.Write("Enter any text: ");
+            str = Console.ReadLine();
+            for (int i = 0; i < str.Length; i++)
+            {
+                if ((int)str[i] > 64 && (int)str[i] < 91)
+                {
+                    count++;
+                }
+            }
+            if (count != 0)
+            {
+                Console.WriteLine("The amount of uppercase latin letters is " + count);
+            }
+            else
+            {
+                Console.WriteLine("There is no uppercase latin letter in the entered text");
+            }
+        }
+    }
+}
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+Задание 4
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+using System;
+using System.Linq;
+
+namespace Lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string str, chr;
+            Console.Write("Enter any text: ");
+            str = Console.ReadLine();
+            Console.Write("Enter any symbol: ");
+            chr = Console.ReadLine();
+            str = str.Replace(chr, chr + chr);
+            Console.WriteLine("The entered text after processing:\n" + str);
+        }
+    }
+}
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+Задание 5
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+using System;
+using System.Linq;
+
+namespace Lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string str, str_0;
+            Console.Write("Enter any text: ");
+            str = Console.ReadLine();
+            Console.Write("Enter any string: ");
+            str_0 = Console.ReadLine();
+            if (str.Contains(str_0) == false)
+            {
+                Console.WriteLine("There is no such string in the entered text");
+            }
+            else
+            {
+                string[] count = str.Split(new string[] { str_0 }, StringSplitOptions.None);
+
+                Console.WriteLine("The amount of occurrences of the entered string in the text = " + (count.Length - 1));
+            }
+        }
+    }
+}

@@ -1,0 +1,152 @@
+///////////////////////////////////////////////////////
+Задание 1
+///////////////////////////////////////////////////////
+using System;
+namespace Lab_1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            float a, b, temp;
+            Console.Write("Введите значение переменной а: ");
+            a = float.Parse(Console.ReadLine());
+            Console.Write("Введите значение переменной b: ");
+            b = float.Parse(Console.ReadLine());
+            temp = a;
+            a = b;
+            b = temp;
+            Console.WriteLine("Содержимое переменных поменялось местами и теперь:\na = {0}\nb = {1}", a, b);
+        }
+    }
+}
+///////////////////////////////////////////////////////
+Задание 2
+///////////////////////////////////////////////////////
+using System;
+namespace Lab_1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            float a, b, c, temp_1, temp_2;
+            Console.Write("Введите значение переменной а: ");
+            a = float.Parse(Console.ReadLine());
+            Console.Write("Введите значение переменной b: ");
+            b = float.Parse(Console.ReadLine());
+            Console.Write("Введите значение переменной c: ");
+            c = float.Parse(Console.ReadLine());
+            temp_1 = a;
+            temp_2 = b;
+            a = c;
+            b = temp_1;
+            c = temp_2;
+            Console.WriteLine("Содержимое переменных поменялось местами и теперь:\na = {0}\nb = {1}\nc = {2}", a, b, c);
+        }
+    }
+}
+///////////////////////////////////////////////////////
+Задание 3
+///////////////////////////////////////////////////////
+using System;
+namespace Lab_1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            float a, b, c, temp_1, temp_2;
+            Console.Write("Введите значение переменной а: ");
+            a = float.Parse(Console.ReadLine());
+            Console.Write("Введите значение переменной b: ");
+            b = float.Parse(Console.ReadLine());
+            Console.Write("Введите значение переменной c: ");
+            c = float.Parse(Console.ReadLine());
+            temp_1 = b;
+            temp_2 = c;
+            c = a;
+            b = temp_2;
+            a = temp_1;
+            Console.WriteLine("Содержимое переменных поменялось местами и теперь:\na = {0}\nb = {1}\nc = {2}", a, b, c);
+        }
+    }
+}
+///////////////////////////////////////////////////////
+Задание 4
+///////////////////////////////////////////////////////
+using System;
+namespace Lab_1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            double y(float x)
+            {
+                return 3 * Math.Pow(x, 6) - 6 * Math.Pow(x, 2) - 7;
+            }
+            Console.Write("y = 3x^6 - 6x^2 - 7\nВведите значение x: ");
+            Console.WriteLine("y = {0}", y(float.Parse(Console.ReadLine())));
+        }
+    }
+}
+///////////////////////////////////////////////////////
+Задание 5
+///////////////////////////////////////////////////////
+using System;
+namespace Lab_1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            double y(float x)
+            {
+                return 4 * Math.Pow((x - 3), 6) - 7 * Math.Pow((x - 3), 3) + 2;
+            }
+            Console.Write("y = 4(x-3)^6 - 7(x-3)^3 + 2\nВведите значение x: ");
+            Console.WriteLine("y = {0}", y(float.Parse(Console.ReadLine())));
+        }
+    }
+}
+///////////////////////////////////////////////////////
+Задание 6
+///////////////////////////////////////////////////////
+using System;
+namespace Lab_1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            float a, t;
+            Console.Write("Введите число а: ");
+            a = float.Parse(Console.ReadLine());
+            t = a * a;
+            a = t * t;
+            t = a * a;
+            Console.WriteLine("a в 8 степени = {0}", t);
+        }
+    }
+}
+///////////////////////////////////////////////////////
+Задание 7
+///////////////////////////////////////////////////////
+using System;
+namespace Lab_1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            long a, t, p;
+            Console.Write("Введите число а: ");
+            a = long.Parse(Console.ReadLine());
+            t = a * a;
+            p = t * t * a;
+            a = p * p * p;
+            Console.WriteLine("a в 15 степени = {0}", a);
+        }
+    }
+}

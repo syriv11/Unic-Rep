@@ -1,0 +1,636 @@
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+Задание 1
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+using System;
+using System.Linq;
+namespace Lab
+{
+    class Program
+    {
+        // Функция для заполнения матрицы
+
+        public static void Fill(int[,] x, int n)
+        {
+            char choose;
+            Console.WriteLine("Enter the desired type of matrix filling:\n1) Manual input\n2) Automatically enter random numbers");
+            choose = char.Parse(Console.ReadLine());
+            switch (choose)
+            {
+                case '1':
+                    Console.Clear();
+                    Console.WriteLine("Enter the value of each element of matrix:\n======");
+                    for (int i = 0; i < n; i++)
+                    {
+                        for (int j = 0; j < n; j++)
+                        {
+                            Console.Write($"[{i + 1}][{j + 1}] = ");
+                            x[i, j] = int.Parse(Console.ReadLine());
+                        }
+                    }
+                    break;
+                case '2':
+                    Random rand = new Random();
+                    for (int i = 0; i < n; i++)
+                    {
+                        for (int j = 0; j < n; j++)
+                        {
+                            x[i, j] = rand.Next(-10, 10);
+                        }
+                    }
+                    break;
+                default:
+                    Console.WriteLine("Wrong command!");
+                    Environment.Exit(1);
+                    break;
+            }
+        }
+
+        //Функция для вывода матрицы на экран
+
+        public static void Print(int[,] a, int n)
+        {
+            Console.Write(" |");
+            for (int i = 0; i < n; i++)
+            {
+                Console.Write("\t\t");
+            }
+            Console.WriteLine("\t|");
+            for (int i = 0; i < n; i++)
+            {
+                Console.Write(" |\t");
+                for (int j = 0; j < n; j++)
+                {
+                    Console.Write($"[{i + 1}][{j + 1}] = {a[i, j]}\t");
+                }
+                Console.Write("|\n |");
+                for (int j = 0; j < n; j++)
+                {
+                    Console.Write("\t\t");
+                }
+                Console.WriteLine("\t|");
+            }
+        }
+
+        //Начало работы
+
+        static void Main(string[] args)
+        {
+
+            ///Ввод необходимых данных
+
+            int n;
+            Console.Write("Enter the order of square matrix (the value of M must be odd): ");
+            n = int.Parse(Console.ReadLine());
+            int[,] matrix = new int[n, n];
+            Console.Clear();
+            Fill(matrix, n);
+            Console.Clear();
+            Console.WriteLine(" The matrix is:\n");
+            Print(matrix, n);
+
+            ///Начало выполнения основной задачи
+
+            Console.WriteLine(" \nThe elements of matrix after processing:\n======");
+            int amount_elem = 0, max_elem = n * n, count = 0;
+            while (true)
+            {
+                if (amount_elem == (max_elem)) { break; }
+                //вывод левой линии сверху вниз
+                for (int i = 0 + count; i < n - count; i++)
+                {
+                    Console.Write(matrix[i, count] + " ");
+                    amount_elem++;
+                }
+                if (amount_elem == (max_elem)) { break; }
+                //вывод нижней линии слева направо
+                for (int i = 1 + count; i < n - count; i++)
+                {
+                    Console.Write(matrix[n - 1 - count, i] + " ");
+                    amount_elem++;
+                }
+                if (amount_elem == (max_elem)) { break; }
+                //вывод правой линии снизу вверх
+                for (int i = n - 2 - count; i > -1 + count; i--)
+                {
+                    Console.Write(matrix[i, n - 1 - count] + " ");
+                    amount_elem++;
+                }
+                if (amount_elem == (max_elem)) { break; }
+                count++;
+                //вывод верхней линии справа налево
+                for (int i = n - 1 - count; i > count - 1; i--)
+                {
+                    Console.Write(matrix[count - 1, i] + " ");
+                    amount_elem++;
+                }
+                if (amount_elem == (max_elem)) { break; }
+            }
+            Console.WriteLine("\n");
+        }
+    }
+}
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+Задание 2
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+using System;
+using System.Linq;
+namespace Lab
+{
+    class Program
+    {
+        // Функция для заполнения матрицы
+
+        public static void Fill(int[,] x, int n, int m)
+        {
+            char choose;
+            Console.WriteLine("Enter the desired type of matrix filling:\n1) Manual input\n2) Automatically enter random numbers");
+            choose = char.Parse(Console.ReadLine());
+            switch (choose)
+            {
+                case '1':
+                    Console.Clear();
+                    Console.WriteLine("Enter the value of each element of matrix:\n======");
+                    for (int i = 0; i < n; i++)
+                    {
+                        for (int j = 0; j < m; j++)
+                        {
+                            Console.Write($"[{i + 1}][{j + 1}] = ");
+                            x[i, j] = int.Parse(Console.ReadLine());
+                        }
+                    }
+                    break;
+                case '2':
+                    Random rand = new Random();
+                    for (int i = 0; i < n; i++)
+                    {
+                        for (int j = 0; j < m; j++)
+                        {
+                            x[i, j] = rand.Next(-10, 10);
+                        }
+                    }
+                    break;
+                default:
+                    Console.WriteLine("Wrong command!");
+                    Environment.Exit(1);
+                    break;
+            }
+        }
+
+        //Функция для вывода матрицы на экран
+
+        public static void Print(int[,] a, int n, int m)
+        {
+            Console.Write(" |");
+            for (int i = 0; i < m; i++)
+            {
+                Console.Write("\t\t");
+            }
+            Console.WriteLine("\t|");
+            for (int i = 0; i < n; i++)
+            {
+                Console.Write(" |\t");
+                for (int j = 0; j < m; j++)
+                {
+                    Console.Write($"[{i + 1}][{j + 1}] = {a[i, j]}\t");
+                }
+                Console.Write("|\n |");
+                for (int j = 0; j < m; j++)
+                {
+                    Console.Write("\t\t");
+                }
+                Console.WriteLine("\t|");
+            }
+        }
+
+        //Начало работы
+
+        static void Main(string[] args)
+        {
+
+            ///Ввод необходимых данных
+
+            int n, m;
+            Console.Write("Enter the number of rows of the matrix (the value of N): ");
+            n = int.Parse(Console.ReadLine());
+            Console.Clear();
+            Console.Write("Enter the number of columns of the matrix (the value of M): ");
+            m = int.Parse(Console.ReadLine());
+            int[,] matrix = new int[n, m];
+            Console.Clear();
+            Fill(matrix, n, m);
+            Console.Clear();
+            int k;
+            Console.Write("Enter the value of K (1 <= K <= N): ");
+            k = int.Parse(Console.ReadLine());
+            Console.Clear();
+            Console.WriteLine(" The matrix is:\n");
+            Print(matrix, n, m);
+
+            ///Начало выполнения основной задачи
+
+            int sum = 0, mult = 1;
+            for (int i = 0; i < m; i++)
+            {
+                sum += matrix[k - 1, i];
+                mult *= matrix[k - 1, i];
+            }
+
+            //Вывод результата на экран
+
+            Console.WriteLine($"\nThe sum of row number {k} is {sum}");
+            Console.WriteLine($"The mult of row number {k} is {mult}\n");
+        }
+    }
+}
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+Задание 3
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+using System;
+using System.Linq;
+namespace Lab
+{
+    class Program
+    {
+        // Функция для заполнения матрицы
+
+        public static void Fill(int[,] x, int n, int m)
+        {
+            char choose;
+            Console.WriteLine("Enter the desired type of matrix filling:\n1) Manual input\n2) Automatically enter random numbers");
+            choose = char.Parse(Console.ReadLine());
+            switch (choose)
+            {
+                case '1':
+                    Console.Clear();
+                    Console.WriteLine("Enter the value of each element of matrix:\n======");
+                    for (int i = 0; i < n; i++)
+                    {
+                        for (int j = 0; j < m; j++)
+                        {
+                            Console.Write($"[{i + 1}][{j + 1}] = ");
+                            x[i, j] = int.Parse(Console.ReadLine());
+                        }
+                    }
+                    break;
+                case '2':
+                    Random rand = new Random();
+                    for (int i = 0; i < n; i++)
+                    {
+                        for (int j = 0; j < m; j++)
+                        {
+                            x[i, j] = rand.Next(1, 10);
+                        }
+                    }
+                    break;
+                default:
+                    Console.WriteLine("Wrong command!");
+                    Environment.Exit(1);
+                    break;
+            }
+        }
+
+        //Функция для вывода матрицы на экран
+
+        public static void Print(int[,] a, int n, int m)
+        {
+            Console.Write(" |");
+            for (int i = 0; i < m; i++)
+            {
+                Console.Write("\t\t");
+            }
+            Console.WriteLine("\t|");
+            for (int i = 0; i < n; i++)
+            {
+                Console.Write(" |\t");
+                for (int j = 0; j < m; j++)
+                {
+                    Console.Write($"[{i + 1}][{j + 1}] = {a[i, j]}\t");
+                }
+                Console.Write("|\n |");
+                for (int j = 0; j < m; j++)
+                {
+                    Console.Write("\t\t");
+                }
+                Console.WriteLine("\t|");
+            }
+        }
+
+        //Начало работы
+
+        static void Main(string[] args)
+        {
+
+            ///Ввод необходимых данных
+
+            int n, m;
+            Console.Write("Enter the number of rows of the matrix (the value of N): ");
+            n = int.Parse(Console.ReadLine());
+            Console.Clear();
+            Console.Write("Enter the number of columns of the matrix (the value of M): ");
+            m = int.Parse(Console.ReadLine());
+            int[,] matrix = new int[n, m];
+            Console.Clear();
+            Fill(matrix, n, m);
+            Console.Clear();
+            Console.WriteLine(" The matrix is:\n");
+            Print(matrix, n, m);
+
+            ///Начало выполнения основной задачи
+
+            int[] mult = new int[m];
+            int min = mult[0], index = 0;
+            bool flag = true;
+            for (int i = 0; i < m; i++)
+            {
+                mult[i]++;
+                for (int j = 0; j < n; j++)
+                {
+                    mult[i] *= matrix[j, i];
+                }
+                if (flag == true)
+                {
+                    min = mult[i];
+                    flag = false;
+                }
+                if (mult[i] < min)
+                {
+                    min = mult[i];
+                    index = i;
+                }
+            }
+
+            //Вывод результата на экран
+
+            Console.WriteLine($"\nThe column with min product of all it\'s elements is numbered {index + 1}.\nThe value of the product = {min}\n");
+        }
+    }
+}
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+Задание 4
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+using System;
+using System.Linq;
+namespace Lab
+{
+    class Program
+    {
+        // Функция для заполнения матрицы
+
+        public static void Fill(int[,] x, int n, int m)
+        {
+            char choose;
+            Console.WriteLine("Enter the desired type of matrix filling:\n1) Manual input\n2) Automatically enter random numbers");
+            choose = char.Parse(Console.ReadLine());
+            switch (choose)
+            {
+                case '1':
+                    Console.Clear();
+                    Console.WriteLine("Enter the value of each element of matrix:\n======");
+                    for (int i = 0; i < n; i++)
+                    {
+                        for (int j = 0; j < m; j++)
+                        {
+                            Console.Write($"[{i + 1}][{j + 1}] = ");
+                            x[i, j] = int.Parse(Console.ReadLine());
+                        }
+                    }
+                    break;
+                case '2':
+                    Random rand = new Random();
+                    for (int i = 0; i < n; i++)
+                    {
+                        for (int j = 0; j < m; j++)
+                        {
+                            x[i, j] = rand.Next(-10, 10);
+                        }
+                    }
+                    break;
+                default:
+                    Console.WriteLine("Wrong command!");
+                    Environment.Exit(1);
+                    break;
+            }
+        }
+
+        //Функция для вывода матрицы на экран
+
+        public static void Print(int[,] a, int n, int m)
+        {
+            Console.Write(" |");
+            for (int i = 0; i < m; i++)
+            {
+                Console.Write("\t\t");
+            }
+            Console.WriteLine("\t|");
+            for (int i = 0; i < n; i++)
+            {
+                Console.Write(" |\t");
+                for (int j = 0; j < m; j++)
+                {
+                    Console.Write($"[{i + 1}][{j + 1}] = {a[i, j]}\t");
+                }
+                Console.Write("|\n |");
+                for (int j = 0; j < m; j++)
+                {
+                    Console.Write("\t\t");
+                }
+                Console.WriteLine("\t|");
+            }
+        }
+
+        //Начало работы
+
+        static void Main(string[] args)
+        {
+
+            ///Ввод необходимых данных
+
+            int n, m;
+            Console.Write("Enter the number of rows of the matrix (the value of N): ");
+            n = int.Parse(Console.ReadLine());
+            Console.Clear();
+            Console.Write("Enter the number of columns of the matrix (the value of M): ");
+            m = int.Parse(Console.ReadLine());
+            int[,] matrix = new int[n, m];
+            Console.Clear();
+            Fill(matrix, n, m);
+            Console.Clear();
+            Console.WriteLine(" The matrix is:\n");
+            Print(matrix, n, m);
+
+            ///Начало выполнения основной задачи
+
+            int[] avarage = new int[m];
+            int[] count = new int[m];
+            for (int i = 0; i < m; i++)
+            {
+                for (int j = 0; j < n; j++)
+                {
+                    avarage[i] += matrix[j, i];
+                }
+                avarage[i] /= n;
+                for (int j = 0; j < n; j++)
+                {
+                    if (matrix[j, i] > avarage[i])
+                    {
+                        count[i]++;
+                    }
+                }
+            }
+
+            //Вывод результата на экран
+
+            Console.Write("\n\nNum of column\t|");
+            for (int i = 0; i < m; i++)
+            {
+                Console.Write($" {i + 1}\t|");
+            }
+            Console.Write("\n===============\t|");
+            for (int i = 0; i < m; i++)
+            {
+                Console.Write("======\t|");
+            }
+            Console.Write("\nCount of elem\t|");
+            for (int i = 0; i < m; i++)
+            {
+                Console.Write($" {count[i]}\t|");
+            }
+            Console.WriteLine("\n");
+        }
+    }
+}
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+Задание 5
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+using System;
+using System.Linq;
+namespace Lab
+{
+    class Program
+    {
+        // Функция для заполнения матрицы
+
+        public static void Fill(int[,] x, int n, int m)
+        {
+            char choose;
+            Console.WriteLine("Enter the desired type of matrix filling:\n1) Manual input\n2) Automatically enter random numbers");
+            choose = char.Parse(Console.ReadLine());
+            switch (choose)
+            {
+                case '1':
+                    Console.Clear();
+                    Console.WriteLine("Enter the value of each element of matrix:\n======");
+                    for (int i = 0; i < n; i++)
+                    {
+                        for (int j = 0; j < m; j++)
+                        {
+                            Console.Write($"[{i + 1}][{j + 1}] = ");
+                            x[i, j] = int.Parse(Console.ReadLine());
+                        }
+                    }
+                    break;
+                case '2':
+                    Random rand = new Random();
+                    for (int i = 0; i < n; i++)
+                    {
+                        for (int j = 0; j < m; j++)
+                        {
+                            x[i, j] = rand.Next(-10, 10);
+                        }
+                    }
+                    break;
+                default:
+                    Console.WriteLine("Wrong command!");
+                    Environment.Exit(1);
+                    break;
+            }
+        }
+
+        //Функция для вывода матрицы на экран
+
+        public static void Print(int[,] a, int n, int m)
+        {
+            Console.Write(" |");
+            for (int i = 0; i < m; i++)
+            {
+                Console.Write("\t\t");
+            }
+            Console.WriteLine("\t|");
+            for (int i = 0; i < n; i++)
+            {
+                Console.Write(" |\t");
+                for (int j = 0; j < m; j++)
+                {
+                    Console.Write($"[{i + 1}][{j + 1}] = {a[i, j]}\t");
+                }
+                Console.Write("|\n |");
+                for (int j = 0; j < m; j++)
+                {
+                    Console.Write("\t\t");
+                }
+                Console.WriteLine("\t|");
+            }
+        }
+
+        //Начало работы
+
+        static void Main(string[] args)
+        {
+
+            ///Ввод необходимых данных
+
+            int n, m;
+            Console.Write("Enter the number of rows of the matrix (the value of N): ");
+            n = int.Parse(Console.ReadLine());
+            Console.Clear();
+            Console.Write("Enter the number of columns of the matrix (the value of M): ");
+            m = int.Parse(Console.ReadLine());
+            int[,] matrix = new int[n, m];
+            Console.Clear();
+            Fill(matrix, n, m);
+            Console.Clear();
+            Console.WriteLine(" The matrix is:\n");
+            Print(matrix, n, m);
+
+            ///Начало выполнения основной задачи
+
+            int index = -1;
+            bool flag = true;
+            for (int i = 0; i < m; i++)
+            {
+                for (int j = 0; j < n; j++)
+                {
+                    if (matrix[j, i] % 2 == 0)
+                    {
+                        if (matrix[j, i] != 0)
+                        {
+                            flag = false;
+                        }
+                    }
+                }
+                if (flag == true)
+                {
+                    index = i;
+                    break;
+                }
+                else
+                {
+                    flag = true;
+                }
+            }
+
+            //Вывод результата на экран
+
+            Console.WriteLine();
+            if (index != -1)
+            {
+                Console.WriteLine($"The column consisting of odd numbers has the number {index + 1}");
+            }
+            else
+            {
+                Console.WriteLine("The column consisting of odd numbers is missing in the matrix\n0");
+            }
+            Console.WriteLine();
+        }   
+    }
+} 

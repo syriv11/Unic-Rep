@@ -1,0 +1,154 @@
+///////////////////////////////////////////////////////////////////
+Задание 1
+///////////////////////////////////////////////////////////////////
+using System;
+
+namespace Lab_1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int a, b;
+            Console.Write("Введите число: ");
+            a = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Введите другое число: ");
+            b = Convert.ToInt32(Console.ReadLine());
+            int S = a * b;
+            int P = 2 * (a + b);
+            Console.WriteLine("S = {0} и P = {1}", S, P);
+        }
+    }
+}
+///////////////////////////////////////////////////////////////////
+Задание 2
+///////////////////////////////////////////////////////////////////
+using System;
+
+namespace Lab_1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            double d;
+            Console.Write("Введите диаметр: ");
+            d = double.Parse(Console.ReadLine());
+            double L = 3.14 * d;
+            Console.WriteLine("L = {0}", L);
+        }
+    }
+}
+///////////////////////////////////////////////////////////////////
+Задание 3
+/////////////////////////////////////////////////////////////////
+using System;
+
+namespace Lab_1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int a, b, c;
+            Console.Write("Введите первое число: ");
+            a = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Введите второе число: ");
+            b = Convert.ToInt32(Console.ReadLine());
+            c = (a + b) / 2;
+            Console.WriteLine("Среднее арифметическое = " + c);
+        }
+    }
+}
+///////////////////////////////////////////////////////////////////
+Задача 4
+//////////////////////////////////////////////////////////////////////////
+using System;
+
+namespace Lab_1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            float a, b, res;
+            char op;
+            do
+            {
+
+                Console.Write("Введите число: ");
+                a = float.Parse(Console.ReadLine());
+                Console.Write("Введите другое число: ");
+                b = float.Parse(Console.ReadLine());
+                Console.WriteLine("Выберите операцию:\n1)+\n2)-\n3)*\n4)/\n5)q");
+                op = char.Parse(Console.ReadLine());
+                switch (op)
+                {
+                    case '+':
+                        Console.WriteLine(res = Convert.ToSingle(Math.Pow(a, 2)) + Convert.ToSingle(Math.Pow(b, 2)));
+                        break;
+                    case '-':
+                        Console.WriteLine(res = Convert.ToSingle(Math.Pow(a, 2)) - Convert.ToSingle(Math.Pow(b, 2)));
+                        break;
+                    case '*':
+                        Console.WriteLine(res = Convert.ToSingle(Math.Pow(a, 2)) * Convert.ToSingle(Math.Pow(b, 2)));
+                        break;
+                    case '/':
+                        Console.WriteLine(res = Convert.ToSingle(Math.Pow(a, 2)) / Convert.ToSingle(Math.Pow(b, 2)));
+                        break;
+                    case 'q':
+                        continue;
+                    default:
+                        Console.WriteLine("Такой операции нет.");
+                        break;
+                }
+            } while (op != 'q');
+        }
+    }
+}
+///////////////////////////////////////////////////////////////////
+Задание 5
+//////////////////////////////////////////////////////////////////////////
+
+using System;
+
+namespace Lab_1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            float a, b, res;
+            char op;
+            do
+            {
+                Console.Write("Введите число: ");
+                a = float.Parse(Console.ReadLine());
+                Console.Write("Введите другое число: ");
+                b = float.Parse(Console.ReadLine());
+                Console.WriteLine("Выберите операцию:\n1)+\n2)-\n3)*\n4)/\n5)q\n");
+                op = char.Parse(Console.ReadLine());
+                switch (op)
+                {
+                    case '+':
+                        Console.WriteLine(res = Convert.ToSingle(Math.Abs(a)) + Convert.ToSingle(Math.Abs(b)));
+                        break;
+                    case '-':
+                        Console.WriteLine(res = Convert.ToSingle(Math.Abs(a)) - Convert.ToSingle(Math.Abs(b)));
+                        break;
+                    case '*':
+                        Console.WriteLine(res = Convert.ToSingle(Math.Abs(a)) * Convert.ToSingle(Math.Abs(b)));
+                        break;
+                    case '/':
+                        Console.WriteLine(res = Convert.ToSingle(Math.Abs(a)) / Convert.ToSingle(Math.Abs(b)));
+                        break;
+                    case 'q':
+                        continue;
+                    default:
+                        Console.WriteLine("Такой операции нет.");
+                        break;
+                }
+            } while (op != 'q');
+        }
+    }
+}

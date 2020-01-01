@@ -1,0 +1,219 @@
+////////////////////////////////////////////////////////////////////////////////////
+Задача 1
+////////////////////////////////////////////////////////////////////////////////////
+using System;
+namespace Lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int d, m;
+            string[] day = new string[31]
+                {"Первое","Второе","Третье","Четвертое","Пятое","Шестое","Седьмое","Восьмое","Девятое","Десятое",
+                "Одиннадцатое","Двенадцатое","Тринадцатое","Четырнадцатое","Пятнадцатое","Шестнадцатое","Семнадцатое",
+                "Восемнадцатое","Девятнадцатое","Двадцатое","Двадцать ","Двадцать второе","Двадцать третье","Двадцать четвертое",
+                "Двадцать пятое","Двадцать шестое","Двадцать седьмое","Двадцать восьмое","Двадцать девятое","Тридцатое","Тридцать первое",};
+            string[] month = new string[12]
+                {"Января","Февраля","Марта","Апреля","Мая","Июня","Июля","Августа","Сентября","Октября","Ноября","Декабря",};
+            Console.WriteLine("Введите номер дня: ");
+            d = int.Parse(Console.ReadLine());
+            Console.WriteLine("Введите номер месяца: ");
+            m = int.Parse(Console.ReadLine());
+            Console.WriteLine(day[d-1] + " " + month[m-1]);
+        }
+    }
+}
+////////////////////////////////////////////////////////////////////////////////////
+Задача 2
+////////////////////////////////////////////////////////////////////////////////////
+using System;
+namespace Lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int dir, com;
+            string[] _dir = new string[4] { "North", "West", "South", "East" };
+            Console.WriteLine("Enter the number of direction of movement of the robot:" +
+                "\n1) North\n2) West\n3) South\n4) East");
+            dir = int.Parse(Console.ReadLine());
+            Console.WriteLine("Enter the number of one of the suggested commands:" +
+                "\n1) Continue Movement\n2) Turn Left\n3) Turn Right");
+            com = int.Parse(Console.ReadLine());
+            switch (com)
+            {
+                case 1:
+                    Console.WriteLine("The final direction of robot is " + _dir[dir - 1]);
+                    break;
+                case 2:
+                    if (dir == 4) { Console.WriteLine("The final direcrion of robot is " + _dir[0]); }
+                    else { Console.WriteLine("The final direcrion of robot is " + _dir[dir]); }
+                    break;
+                case 3:
+                    if (dir == 1) { Console.WriteLine("The final direcrion of robot is " + _dir[3]); }
+                    else { Console.WriteLine("The final direcrion of robot is " + _dir[dir-2]); }
+                    break;
+            }
+        }
+    }
+}
+////////////////////////////////////////////////////////////////////////////////////
+Задача 3
+////////////////////////////////////////////////////////////////////////////////////
+using System;
+namespace Lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int choise;
+            string[] word = new string[3] { "учебных заданий", "учебное задание", "учебных задания" };
+            string[] number = new string[31]
+            { "Десять", "Одиннадцать", "Двенадцать", "Тринадцать", "Четырнадцать", "Пятнадцать", "Шестнадцать", "Семнадцать", "Восемнадцать", "Девятнадцать",
+              "Двадцать", "Двадцать одно", "Двадцать два", "Двадцать три", "Двадцать четыре", "Двадцать пять", "Двадцать шесть", "Двадцать семь", "Двадцать восемь",
+              "Двадцать девять", "Тридцать", "Тридцать одно", "Тридцать два", "Тридцать три", "Тридцать четыре", "Тридцать пять", "Тридцать шесть", "Тридцать семь",
+              "Тридцать восемь", "Тридцать девять", "Сорок" };
+            Console.Write("Enter the disired number(10-40): ");
+            choise = int.Parse(Console.ReadLine());
+            if (choise < 10 || choise > 40)
+            {
+                Console.WriteLine("Unknown command");
+                Environment.Exit(1);
+            }
+            switch(choise)
+            {
+                case 21:
+                case 31:
+                    Console.WriteLine(number[choise - 10] + " " + word[1]);
+                    break;
+                case 22:
+                case 32:
+                    Console.WriteLine(number[choise - 10] + " " + word[2]);
+                    break;
+                default:
+                    Console.WriteLine(number[choise - 10] + " " + word[0]);
+                    break;
+            }
+        }
+    }
+}
+////////////////////////////////////////////////////////////////////////////////////
+Задача 4
+////////////////////////////////////////////////////////////////////////////////////
+using System;
+namespace Lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int num;
+            string[] units = new string[9] { "один", "два", "три", "четыре", "пять", "шесть", "семь", "восемь", "девять" };
+            string[] _units = new string[9] { "одиннадцать", "двенадцать", "тринадцать", "четырнадцать", "пятнадцать",
+                                              "шестнадцать", "семьнадцать", "восемнадцать", "девятнадцать", };
+            string[] dozens = new string[8] { "двадцать", "тридцать", "сорок", "пятьдесят", "шестьдесят", "семьдесят", "восемьдесят", "девяносто" };
+            string[] hundreds = new string[9] { "Сто", "Двести", "Триста", "Четиреста", "Пятьсот", "Шестьсот", "Семьсот", "Восемьсот", "Девятьсот", };
+            Console.Write("Enter the number(100-999): ");
+            num = int.Parse(Console.ReadLine());
+            if (num < 100 || num > 999)
+            {
+                Console.WriteLine("Wrong number!");
+                Environment.Exit(1);
+            }
+
+            if ((num % 100) / 10 == 1)
+            { Console.WriteLine(hundreds[num / 100 - 1] + " " + _units[num % 10 - 1]); }
+            else
+            {
+                if ((num % 100) / 10 == 0)
+                {
+                    if (num % 10 == 0)
+                    { Console.WriteLine(hundreds[num / 100 - 1]); }
+                    else 
+                    { Console.WriteLine(hundreds[num / 100 - 1] + " " + units[num % 10 - 1]); }
+                }
+                else	
+                {
+                    if (num % 10 == 0)
+                    { Console.WriteLine(hundreds[num / 100 - 1] + " " + dozens[(num / 10) % 10 - 2]); }
+                    else 
+                    { Console.WriteLine(hundreds[num / 100 - 1] + " " + dozens[(num / 10) % 10 - 2] + " " + units[num % 10 - 1]); }
+                }
+            }
+        }
+    }
+}
+////////////////////////////////////////////////////////////////////////////////////
+Задача 5
+////////////////////////////////////////////////////////////////////////////////////
+using System;
+namespace Lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int num, year = 1984, col = 0, ani = 0;
+            string[] color = new string[5]
+            { "green", "red", "yellow", "white", "black" };
+            string[] animal = new string[12]
+            { "rat", "cow", "tiger", "hare", "dragon", "snake", "horse", "sheep", "monkey", "chicken", "dog", "pig", };
+            Console.Write("Enter the year: ");
+            num = int.Parse(Console.ReadLine());
+            if (num == 1984)
+            { Console.WriteLine("The year of " + color[0] + " " + animal[0]); }
+            else
+            {
+                if (num > year)
+                {
+                    while (num != year)
+                    {
+                        for (int i = 0; i < 5; i++)
+                        {
+                            if (i == 5) { i = 0; }
+                            col = i;
+                            for (int j = 0; j < 12; j++)
+                            {
+                                if (j == 12) { j = 0; }
+                                ani = j;
+                                if (num != year)
+                                { year++; }
+                                else
+                                { break; }
+                            }
+                            if (num == year)
+                            { break; }
+                        }
+                    }
+                    Console.WriteLine("The year of " + color[col] + " " + animal[ani]);
+                }
+                else
+                {
+                    while (num != year)
+                    {
+                        for (int i = 5; i > 0; i--)
+                        {
+                            if (i == 0) { i = 5; }
+                            col = i;
+                            for (int j = 12; j > 0; j--)
+                            {
+                                if (j == 0) { j = 12; }
+                                ani = j;
+                                if (num != year)
+                                { year--; }
+                                else
+                                { break; }
+                            }
+                            if (num == year)
+                            { break; }
+                        }
+                    }
+                    Console.WriteLine("The year of " + color[col - 1] + " " + animal[ani]);
+                }
+            }
+        }
+    }
+}
