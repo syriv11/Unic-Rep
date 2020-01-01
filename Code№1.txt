@@ -1,5 +1,5 @@
 ///////////////////////////////////////////////////////////////////
-Задание 1
+Р—Р°РґР°РЅРёРµ 1
 ///////////////////////////////////////////////////////////////////
 using System;
 
@@ -10,18 +10,18 @@ namespace Lab_1
         static void Main(string[] args)
         {
             int a, b;
-            Console.Write("Введите число: ");
+            Console.Write("Г‚ГўДєГ¤ДЌЕ€Дє Г·ДЌЕ„Г«Г®: ");
             a = Convert.ToInt32(Console.ReadLine());
-            Console.Write("Введите другое число: ");
+            Console.Write("Г‚ГўДєГ¤ДЌЕ€Дє Г¤Д‘ГіДѓГ®Дє Г·ДЌЕ„Г«Г®: ");
             b = Convert.ToInt32(Console.ReadLine());
             int S = a * b;
             int P = 2 * (a + b);
-            Console.WriteLine("S = {0} и P = {1}", S, P);
+            Console.WriteLine("S = {0} ДЌ P = {1}", S, P);
         }
     }
 }
 ///////////////////////////////////////////////////////////////////
-Задание 2
+Г‡Е•Г¤Е•Г­ДЌДє 2
 ///////////////////////////////////////////////////////////////////
 using System;
 
@@ -32,7 +32,7 @@ namespace Lab_1
         static void Main(string[] args)
         {
             double d;
-            Console.Write("Введите диаметр: ");
+            Console.Write("Г‚ГўДєГ¤ДЌЕ€Дє Г¤ДЌЕ•Д›ДєЕ€Д‘: ");
             d = double.Parse(Console.ReadLine());
             double L = 3.14 * d;
             Console.WriteLine("L = {0}", L);
@@ -40,7 +40,7 @@ namespace Lab_1
     }
 }
 ///////////////////////////////////////////////////////////////////
-Задание 3
+Г‡Е•Г¤Е•Г­ДЌДє 3
 /////////////////////////////////////////////////////////////////
 using System;
 
@@ -51,17 +51,17 @@ namespace Lab_1
         static void Main(string[] args)
         {
             int a, b, c;
-            Console.Write("Введите первое число: ");
+            Console.Write("Г‚ГўДєГ¤ДЌЕ€Дє ДЏДєД‘ГўГ®Дє Г·ДЌЕ„Г«Г®: ");
             a = Convert.ToInt32(Console.ReadLine());
-            Console.Write("Введите второе число: ");
+            Console.Write("Г‚ГўДєГ¤ДЌЕ€Дє ГўЕ€Г®Д‘Г®Дє Г·ДЌЕ„Г«Г®: ");
             b = Convert.ToInt32(Console.ReadLine());
             c = (a + b) / 2;
-            Console.WriteLine("Среднее арифметическое = " + c);
+            Console.WriteLine("ЕѓД‘ДєГ¤Г­ДєДє Е•Д‘ДЌГґД›ДєЕ€ДЌГ·ДєЕ„Д™Г®Дє = " + c);
         }
     }
 }
 ///////////////////////////////////////////////////////////////////
-Задача 4
+Г‡Е•Г¤Е•Г·Е• 4
 //////////////////////////////////////////////////////////////////////////
 using System;
 
@@ -76,11 +76,11 @@ namespace Lab_1
             do
             {
 
-                Console.Write("Введите число: ");
+                Console.Write("Г‚ГўДєГ¤ДЌЕ€Дє Г·ДЌЕ„Г«Г®: ");
                 a = float.Parse(Console.ReadLine());
-                Console.Write("Введите другое число: ");
+                Console.Write("Г‚ГўДєГ¤ДЌЕ€Дє Г¤Д‘ГіДѓГ®Дє Г·ДЌЕ„Г«Г®: ");
                 b = float.Parse(Console.ReadLine());
-                Console.WriteLine("Выберите операцию:\n1)+\n2)-\n3)*\n4)/\n5)q");
+                Console.WriteLine("Г‚Е±ГЎДєД‘ДЌЕ€Дє Г®ДЏДєД‘Е•Г¶ДЌЕЈ:\n1)+\n2)-\n3)*\n4)/\n5)q");
                 op = char.Parse(Console.ReadLine());
                 switch (op)
                 {
@@ -99,7 +99,7 @@ namespace Lab_1
                     case 'q':
                         continue;
                     default:
-                        Console.WriteLine("Такой операции нет.");
+                        Console.WriteLine("Е‡Е•Д™Г®Г© Г®ДЏДєД‘Е•Г¶ДЌДЌ Г­ДєЕ€.");
                         break;
                 }
             } while (op != 'q');
@@ -107,7 +107,7 @@ namespace Lab_1
     }
 }
 ///////////////////////////////////////////////////////////////////
-Задание 5
+Г‡Е•Г¤Е•Г­ДЌДє 5
 //////////////////////////////////////////////////////////////////////////
 
 using System;
@@ -122,11 +122,11 @@ namespace Lab_1
             char op;
             do
             {
-                Console.Write("Введите число: ");
+                Console.Write("Г‚ГўДєГ¤ДЌЕ€Дє Г·ДЌЕ„Г«Г®: ");
                 a = float.Parse(Console.ReadLine());
-                Console.Write("Введите другое число: ");
+                Console.Write("Г‚ГўДєГ¤ДЌЕ€Дє Г¤Д‘ГіДѓГ®Дє Г·ДЌЕ„Г«Г®: ");
                 b = float.Parse(Console.ReadLine());
-                Console.WriteLine("Выберите операцию:\n1)+\n2)-\n3)*\n4)/\n5)q\n");
+                Console.WriteLine("Г‚Е±ГЎДєД‘ДЌЕ€Дє Г®ДЏДєД‘Е•Г¶ДЌЕЈ:\n1)+\n2)-\n3)*\n4)/\n5)q\n");
                 op = char.Parse(Console.ReadLine());
                 switch (op)
                 {
@@ -145,7 +145,7 @@ namespace Lab_1
                     case 'q':
                         continue;
                     default:
-                        Console.WriteLine("Такой операции нет.");
+                        Console.WriteLine("Е‡Е•Д™Г®Г© Г®ДЏДєД‘Е•Г¶ДЌДЌ Г­ДєЕ€.");
                         break;
                 }
             } while (op != 'q');
